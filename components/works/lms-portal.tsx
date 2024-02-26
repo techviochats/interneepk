@@ -47,8 +47,8 @@ const LmsPortal = () => {
             </h1>
           </div>
           <p className="text-sm">
-            Want to learn something but don{"'"}t know what{"'"}s the roadmap or your
-            english is not too good? That{"'"}s why we launch LMS for you.
+            Want to learn something but don&apos;t know what&apos;s the roadmap or your
+            english is not too good? That&apos;s why we launch LMS for you.
           </p>
           <div className="w-full h-full grid grid-cols-2">
             {data.map((Item) => (
