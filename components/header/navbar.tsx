@@ -38,7 +38,7 @@ const Navbar = () => {
             href="/"
             className="text-internee-theme font-semibold px-5 py-3 rounded-full border-2 border-internee-theme hover:border-internee-theme/60 hover:text-internee-theme/60 transition-all duration-300 ease-in-out"
           >
-            Internee's Login
+            Internee{"'"}s Login
           </Link>
         </div>
       </div>
