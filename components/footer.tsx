@@ -10,7 +10,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 z-10 h-48 bg-internee-absoluteTheme px-0 md:px-44 py-5">
+    <footer className="mt-32 z-10 h-48 bg-internee-absoluteTheme px-0 md:px-44 py-5">
       <div className="flex justify-between">
         <Link className="px-2" href={"/"}>
           <Image
