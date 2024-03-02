@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { MonitorPlay, UserPlus, AppWindow, ListChecks } from "lucide-react";
+import MotionDiv from "@/components/framer/isInView";
 
 const OurTaskPortal = () => {
   const data = [
@@ -39,14 +40,14 @@ const OurTaskPortal = () => {
       <div className="bg-[#F5F6F7] absolute top-1/3 right-24 h-72 rounded-full w-72 z-0"></div>
       {/* image */}
       <div className="w-[45%] flex h-full items-center -ml-5">
-        <div className="w-full relative aspect-square ">
+        <MotionDiv className="w-full relative aspect-square ">
           <Image
             src={"/assets/task-one.webp"}
             alt="task-one"
             fill
             className="object-cover bg-right"
           />
-        </div>
+        </MotionDiv>
       </div>
       <div className="w-[50%] z-10">
         <div className=" w-[84%] h-full flex flex-col gap-y-4">
@@ -63,7 +64,9 @@ const OurTaskPortal = () => {
           <div className="w-full h-full grid grid-cols-2">
             {data.map((Item) => (
               <div key={Item.id} className="flex gap-x-2">
-                <div>{Item.Icon}</div>
+                <MotionDiv x1="0" x2="0" y1="0" y2="50%">
+                  {Item.Icon}
+                </MotionDiv>
                 <div className="flex flex-col">
                   <h3 className="font-semibold">{Item.title}</h3>
                   <p className="text-sm">{Item.description}</p>

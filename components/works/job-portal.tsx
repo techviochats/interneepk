@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { Cloud, SearchCheck, AlertCircle, Copy } from "lucide-react";
 
+import MotionDiv from "@/components/framer/isInView";
+
 const JobPortal = () => {
   const data = [
     {
@@ -36,7 +38,7 @@ const JobPortal = () => {
       <div className="bg-[#F5F6F7] absolute top-0 left-0 h-72 rounded-full w-72"></div>
 
       <div
-        style={{ "clipPath": "polygon(100% 0, 3% 100%, 100% 100%);" }}
+        style={{ clipPath: "polygon(100% 0, 3% 100%, 100% 100%)" }}
         className="w-full h-96 absolute bottom-0 left-0 bg-[#F5F6F7] z-0"
       ></div>
       <div className="w-[50%] flex flex-col items-end z-10">
@@ -56,7 +58,9 @@ const JobPortal = () => {
           <div className="w-full h-full grid grid-cols-2">
             {data.map((Item) => (
               <div key={Item.id} className="flex gap-x-2">
-                <div>{Item.Icon}</div>
+                <MotionDiv x1="0" x2="0" y1="0" y2="50%">
+                  {Item.Icon}
+                </MotionDiv>
                 <div className="flex flex-col">
                   <h3 className="font-semibold">{Item.title}</h3>
                   <p className="text-sm">{Item.description}</p>
@@ -67,15 +71,15 @@ const JobPortal = () => {
         </div>
       </div>
       {/* image */}
-      <div className="w-[40%] flex h-full justify-end items-center">
-        <div className="w-full relative aspect-square">
+      <div className="w-[40%] flex h-full justify-end items-center overflow-hidden">
+        <MotionDiv className="w-full relative aspect-square" x1="0" x2="50%">
           <Image
             src={"/assets/task-four.webp"}
             alt="task-four"
             fill
             className="object-cover"
           />
-        </div>
+        </MotionDiv>
       </div>
     </div>
   );

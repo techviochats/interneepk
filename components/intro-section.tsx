@@ -4,6 +4,7 @@ import OurTaskPortal from "@/components/works/our-task-portal";
 import LmsPortal from "@/components/works/lms-portal";
 import CourseCreate from "@/components/works/course-create";
 import JobPortal from "@/components/works/job-portal";
+import InterneeFeature from "@/components/works/internee-feature";
 
 const IntroSection = () => {
   return (
@@ -13,6 +14,7 @@ const IntroSection = () => {
       <LmsPortal />
       <CourseCreate />
       <JobPortal />
+      <InterneeFeature />
     </div>
   );
 };

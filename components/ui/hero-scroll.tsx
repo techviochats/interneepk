@@ -1,6 +1,7 @@
-"use client";
+
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+
 
 export function HeroScroll() {
   return (
@@ -93,14 +94,11 @@ export const users = [
     designation: "Frontend Developer, WebSolutions",
     image: "/assets/young-woman-teaching-english-lessons.jpg",
     badge: "Mentor",
-
   },
   {
     name: "Devops Internship",
     designation: "Backend Developer, ServerSecure",
     image: "/assets/DataScience.jpeg",
     badge: "Mentor",
-
   },
- 
 ];

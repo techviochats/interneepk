@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Cloud, SearchCheck, AlertCircle, Copy } from "lucide-react";
+import MotionDiv from "@/components/framer/isInView";
 
 const LmsPortal = () => {
   const data = [
@@ -47,13 +48,14 @@ const LmsPortal = () => {
             </h1>
           </div>
           <p className="text-sm">
-            Want to learn something but don&apos;t know what&apos;s the roadmap or your
-            english is not too good? That&apos;s why we launch LMS for you.
+            Want to learn something but don&apos;t know what&apos;s the roadmap
+            or your english is not too good? That&apos;s why we launch LMS for
+            you.
           </p>
           <div className="w-full h-full grid grid-cols-2">
             {data.map((Item) => (
               <div key={Item.id} className="flex gap-x-2">
-                <div>{Item.Icon}</div>
+                <MotionDiv x1="0" x2="0" y1="0" y2="50%">{Item.Icon}</MotionDiv>
                 <div className="flex flex-col">
                   <h3 className="font-semibold">{Item.title}</h3>
                   <p className="text-sm">{Item.description}</p>
@@ -64,15 +66,15 @@ const LmsPortal = () => {
         </div>
       </div>
       {/* image */}
-      <div className="w-[40%] flex h-full items-center">
-        <div className="w-full relative aspect-square ">
+      <div className="w-[40%] flex h-full items-center overflow-hidden">
+        <MotionDiv className="w-full relative aspect-square" x1="0" x2="50%">
           <Image
             src={"/assets/task-two.webp"}
             alt="task-two"
             fill
             className="object-cover bg-right"
           />
-        </div>
+        </MotionDiv>
       </div>
     </div>
   );

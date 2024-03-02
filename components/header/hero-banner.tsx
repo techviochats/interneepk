@@ -32,10 +32,10 @@ const HeroBanner = () => {
             <TypeWriter />
           </h1>
           <h3 className="text-base text-internee-text">
-            Internee.pk kickstart student{"`"}s tech careers with first internships,
-            providing industry exposure, practical skills, and networking
-            opportunities, paving the way for their success in the tech
-            industry.
+            Internee.pk kickstart student{"`"}s tech careers with first
+            internships, providing industry exposure, practical skills, and
+            networking opportunities, paving the way for their success in the
+            tech industry.
           </h3>
           {/* pic */}
           <div className="flex items-center gap-x-1">
