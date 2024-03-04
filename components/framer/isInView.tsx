@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { useInView, motion, Variant, Variants } from "framer-motion";
 import { ChildrenTypes } from "@/@types/children-types";
+
 interface MotionType extends ChildrenTypes {
   className?: string;
   x1?: string;

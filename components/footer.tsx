@@ -24,9 +24,15 @@ const Footer = () => {
         <div className="flex gap-x-20">
           <div className="flex flex-col gap-y-2 text-sm text-muted-foreground">
             <h1 className="font-semibold text-black">Company</h1>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/careers">Careers</Link>
+            <Link href="/privacy.html" target="blank">
+              Contact Us
+            </Link>
+            <Link href="/privacy.html" target="blank">
+              Privacy Policy
+            </Link>
+            <Link href="/policy.html" target="blank">
+              Terms and Conditions
+            </Link>
           </div>
           <div className="flex flex-col gap-y-2 text-sm text-muted-foreground">
             <h1 className="font-semibold text-black">Get Help</h1>
