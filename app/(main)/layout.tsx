@@ -5,7 +5,7 @@ import React from "react";
 
 const MainLayout = ({ children }: ChildrenTypes) => {
   return (
-    <div className="sm:h-full bg-white max-w-screen-2xl mx-auto ">
+    <div className="sm:h-full bg-white max-w-[1580px] mx-auto">
       <Navbar />
       <main className="pt-28">{children}</main>
       <Footer />
