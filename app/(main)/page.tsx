@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <HeroBanner />
       <IntroSection />
-      <Testimonials />
+      {/* <Testimonials /> */}
     </>
   );
 }

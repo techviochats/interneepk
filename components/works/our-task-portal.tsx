@@ -35,11 +35,11 @@ const OurTaskPortal = () => {
     },
   ];
   return (
-    <div className="flex h-[50rem] bg-white gap-x-5 mt-20 relative">
+    <div className="flex sm:flex-row flex-col sm:h-[50rem] bg-white sm:gap-x-5 gap-y-3 mt-20 relative">
       <div className="bg-[#F5F6F7] absolute top-0 left-0 h-72 rounded-full w-72"></div>
       <div className="bg-[#F5F6F7] absolute top-1/3 right-24 h-72 rounded-full w-72 z-0"></div>
       {/* image */}
-      <div className="w-[45%] flex h-full items-center -ml-5">
+      <div className="w-full sm:w-[45%] flex h-full items-center -ml-5">
         <MotionDiv className="w-full relative aspect-square ">
           <Image
             src={"/assets/task-one.webp"}
@@ -49,7 +49,7 @@ const OurTaskPortal = () => {
           />
         </MotionDiv>
       </div>
-      <div className="w-[50%] z-10">
+      <div className="w-full sm:w-[50%] z-10">
         <div className=" w-[84%] h-full flex flex-col gap-y-4">
           <div className="leading-none">
             <h2 className="font-semibold">Our own task portal</h2>

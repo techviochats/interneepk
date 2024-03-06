@@ -5,10 +5,10 @@ import React from "react";
 
 const MainLayout = ({ children }: ChildrenTypes) => {
   return (
-    <div className="h-full bg-white max-w-7xl mx-auto scroll-smooth">
+    <div className="sm:h-full bg-white max-w-7xl mx-auto ">
       <Navbar />
       <main className="pt-28">{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

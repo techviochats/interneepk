@@ -10,7 +10,7 @@ export function HeroScroll() {
         users={users}
         titleComponent={
           <div className="mb-8 flex justify-center items-center ">
-            <h1 className="text-4xl font-semibold w-[60%] text-black dark:text-white flex flex-col justify-center items-center">
+            <h1 className="sm:text-4xl text-2xl font-semibold sm:w-[60%] w-full text-black dark:text-white flex flex-col justify-center items-center">
               Who is internee.pk? <br />
               <span className="text-sm mt-1 leading-tight font-normal">
                 The ultimate platform designed to turbocharge the IT sector in
