@@ -11,10 +11,10 @@ const IntroSection = () => {
     <div className="space-y-40">
       <HeroScroll />
       <OurTaskPortal />
-      {/* <LmsPortal />
+      <LmsPortal />
       <CourseCreate />
       <JobPortal />
-      <InterneeFeature /> */}
+      <InterneeFeature />
     </div>
   );
 };

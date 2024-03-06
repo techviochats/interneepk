@@ -14,16 +14,16 @@ const SLIDE_COUNT = 7;
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 const Testimonials = () => {
   return (
-    <div className="mt-40 pl-0 md:pl-44 relative">
-      <div className="absolute -top-20 h-[135vh] max-h-[900px] bg-internee-absoluteTheme md:w-[80%] left-0 rounded-2xl -z-10 " />
-      <h1 className="capitalize text-xl md:text-4xl font-semibold tracking-tighter z-10 px-2 md:px-0">
+    <div className="mt-40 pl-0 sm:pl-44 relative">
+      <div className="absolute -top-20 h-[135vh] max-h-[900px] bg-internee-absoluteTheme sm:w-[80%] left-0 rounded-2xl -z-10 " />
+      <h1 className="capitalize text-xl sm:text-4xl font-semibold tracking-tighter z-10 px-2 sm:px-0">
         What Students are saying <br />
         about internee.pk
       </h1>
       <div className="z-10">
         <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       </div>
-      <div className="mt-20 w-[78%] flex gap-x-24">
+      <div className="mt-20 w-full sm:w-[78%] flex gap-x-24 flex-col sm:flex-row px-4">
         <div className="flex flex-col gap-y-2">
           <h1 className="text-2xl capitalize flex font-semibold">
             <MotionDiv x1="0" x2="0" y1="0" y2="50%" className="flex">

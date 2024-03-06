@@ -34,15 +34,14 @@ const JobPortal = () => {
     },
   ];
   return (
-    <div className="flex h-[35rem] bg-white gap-x-5 mt-20 relative">
-      <div className="bg-[#F5F6F7] absolute top-0 left-0 h-72 rounded-full w-72"></div>
-
+    <div className="flex flex-col sm:flex-row gap-y-6 sm:h-[35rem] bg-white gap-x-5 mt-20 relative px-4">
+      <div className="bg-[#F5F6F7] absolute top-0 left-0 sm:h-72 rounded-full sm:w-72 w-56 h-56"></div>
       <div
         style={{ clipPath: "polygon(100% 0, 3% 100%, 100% 100%)" }}
-        className="w-full h-96 absolute bottom-0 left-0 bg-[#F5F6F7] z-0"
+        className="w-full h-96 absolute bottom-0 left-0 bg-[#F5F6F7] z-0 hidden sm:block"
       ></div>
-      <div className="w-[50%] flex flex-col items-end z-10">
-        <div className="w-[78%] h-full flex flex-col gap-y-4">
+      <div className="w-full sm:w-[50%] flex flex-col items-end z-10">
+        <div className="w-full sm:w-[78%] h-full flex flex-col gap-y-4">
           <div className="leading-none">
             <h2 className="font-semibold">
               Already have a good skill but looking for job?
@@ -55,7 +54,7 @@ const JobPortal = () => {
             Streamline the approval process with your customer to quickly close
             the deal, get the sale, and start production.
           </p>
-          <div className="w-full h-full grid grid-cols-2">
+          <div className="w-full h-full grid sm:grid-cols-2 grid-cols-1 gap-y-4 sm:gap-y-0">
             {data.map((Item) => (
               <div key={Item.id} className="flex gap-x-2">
                 <MotionDiv x1="0" x2="0" y1="0" y2="50%">
@@ -71,7 +70,7 @@ const JobPortal = () => {
         </div>
       </div>
       {/* image */}
-      <div className="w-[40%] flex h-full justify-end items-center overflow-hidden">
+      <div className="w-full sm:w-[40%] flex h-full justify-end items-center overflow-hidden">
         <MotionDiv className="w-full relative aspect-square" x1="0" x2="50%">
           <Image
             src={"/assets/task-four.webp"}

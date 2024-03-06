@@ -35,12 +35,12 @@ const LmsPortal = () => {
     },
   ];
   return (
-    <div className="flex h-[50rem] bg-white gap-x-5 mt-20 relative">
-      <div className="bg-[#F5F6F7] absolute top-0 left-0 h-72 rounded-full w-72"></div>
-      <div className="bg-[#F5F6F7] absolute bottom-0 right-0 h-72 rounded-full w-72 z-0"></div>
+    <div className="flex sm:flex-row flex-col gap-y-4 sm:h-[50rem] bg-white gap-x-5 mt-20 relative px-4 sm:px-0">
+      <div className="bg-[#F5F6F7] absolute top-0 left-0 sm:h-72 rounded-full sm:w-72 w-52 h-52"></div>
+      <div className="bg-[#F5F6F7] absolute bottom-0 right-0 sm:h-72 rounded-full sm:w-72 z-0 w-52 h-52"></div>
 
-      <div className="w-[50%] flex flex-col items-end z-10">
-        <div className="w-[78%] h-full flex flex-col gap-y-4">
+      <div className="w-full sm:w-[50%] flex flex-col items-end z-10">
+        <div className="w-full sm:w-[78%] h-full flex flex-col gap-y-4">
           <div className="leading-none">
             <h2 className="font-semibold">Our LMS</h2>
             <h1 className="text-4xl tracking-tight font-semibold">
@@ -52,10 +52,12 @@ const LmsPortal = () => {
             or your english is not too good? That&apos;s why we launch LMS for
             you.
           </p>
-          <div className="w-full h-full grid grid-cols-2">
+          <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-0">
             {data.map((Item) => (
               <div key={Item.id} className="flex gap-x-2">
-                <MotionDiv x1="0" x2="0" y1="0" y2="50%">{Item.Icon}</MotionDiv>
+                <MotionDiv x1="0" x2="0" y1="0" y2="50%">
+                  {Item.Icon}
+                </MotionDiv>
                 <div className="flex flex-col">
                   <h3 className="font-semibold">{Item.title}</h3>
                   <p className="text-sm">{Item.description}</p>
@@ -66,7 +68,7 @@ const LmsPortal = () => {
         </div>
       </div>
       {/* image */}
-      <div className="w-[40%] flex h-full items-center overflow-hidden">
+      <div className="w-full sm:w-[40%] flex h-full items-center overflow-hidden">
         <MotionDiv className="w-full relative aspect-square" x1="0" x2="50%">
           <Image
             src={"/assets/task-two.webp"}

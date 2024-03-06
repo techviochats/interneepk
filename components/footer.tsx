@@ -10,8 +10,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="mt-32 z-10 h-48 bg-internee-absoluteTheme px-0 md:px-44 py-5">
-      <div className="flex justify-between">
+    <footer className="mt-32 z-10 sm:h-48 bg-internee-absoluteTheme px-4 sm:px-44 py-5">
+      <div className="flex justify-between flex-col sm:flex-row gap-y-8 sm:gap-y-0">
         <Link className="px-2" href={"/"}>
           <Image
             src={"/logo.webp"}
@@ -21,7 +21,7 @@ const Footer = () => {
             className="object-cover"
           />
         </Link>
-        <div className="flex gap-x-20">
+        <div className="flex gap-x-20 flex-col sm:flex-row gap-y-6">
           <div className="flex flex-col gap-y-2 text-sm text-muted-foreground">
             <h1 className="font-semibold text-black">Company</h1>
             <Link href="/privacy.html" target="blank">

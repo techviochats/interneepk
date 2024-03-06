@@ -7,11 +7,11 @@ import NavbarButton from "./_components/navbar-button";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 inset-x-0 h-28 py-8 px-4 md:px-12 z-[999] bg-white border-2 shadow-lg">
+    <div className="fixed top-0 inset-x-0 h-28 py-8 px-4 md:px-12 z-[999] bg-white border-2 sm:border-none shadow-lg sm:shadow-none">
       <div className="w-full flex justify-between items-center transition-all">
-        <div className="w-40 h-10 relative">
+        <Link className="w-40 h-10 relative" href={"/"}>
           <Image src="/logo.webp" alt="logo" fill className="object-contain" />
-        </div>
+        </Link>
         <div className="sm:hidden flex items-center justify-center">
           <NavbarButton />
         </div>

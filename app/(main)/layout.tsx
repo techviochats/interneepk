@@ -8,7 +8,7 @@ const MainLayout = ({ children }: ChildrenTypes) => {
     <div className="sm:h-full bg-white max-w-7xl mx-auto ">
       <Navbar />
       <main className="pt-28">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

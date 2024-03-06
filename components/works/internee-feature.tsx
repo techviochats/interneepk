@@ -44,12 +44,12 @@ const InterneeFeature = () => {
     },
   ];
   return (
-    <div className="space-y-12 px-48 relative pb-10">
-      <div className="absolute -top-10 w-[42%] bg-internee-absoluteTheme h-[120vh] right-0 rounded-xl -z-[10] max-h-[680px]" />
-      <h1 className="capitalize text-5xl font-semibold tracking-tighter">
+    <div className="space-y-12 pl-4 sm:px-48 relative pb-10">
+      <div className="absolute -top-10 w-[42%] bg-internee-absoluteTheme h-[120vh] right-0 rounded-xl -z-[10] max-h-[680px] hidden sm:block" />
+      <h1 className="capitalize text-4xl sm:text-5xl font-semibold tracking-tighter">
         Why Internee.pk?
       </h1>
-      <div className="flex gap-x-4 w-full z-10">
+      <div className="flex flex-col sm:flex-row gap-x-4 gap-y-4 w-full z-10">
         {/* svg with data */}
         <div className="flex h-full flex-col">
           {data?.map((val, index) => (
@@ -61,7 +61,13 @@ const InterneeFeature = () => {
                 y1="0"
                 y2="-50%"
               >
-                <Image src={val.Icon} alt={val.label} width={50} height={50} />
+                <Image
+                  src={val.Icon}
+                  alt={val.label}
+                  width={50}
+                  height={50}
+                  // className="w-10 h-10 sm:w-[50px] sm:h-[50px] "
+                />
                 <Boxes
                   className={cn(
                     "w-4 h-4 absolute top-[22%] left-[36%] text-internee-theme",
@@ -72,7 +78,7 @@ const InterneeFeature = () => {
 
               <p
                 className={cn(
-                  "font-semibold h-full my-auto text-sm w-[80%]",
+                  "font-semibold h-full sm:my-auto sm:text-sm sm:w-[80%] w-full text-xs",
                   data.length - 1 !== index && "pb-5"
                 )}
               >
@@ -82,8 +88,8 @@ const InterneeFeature = () => {
           ))}
         </div>
         {/* image */}
-        <div className="p-1 overflow-hidden">
-          <MotionDiv className="relative w-72 h-[90%] " x1="0" x2="50%">
+        <div className="p-1 overflow-hidden pr-4 sm:pr-4">
+          <MotionDiv className="relative w-72 sm:h-[90%]" x1="0" x2="50%">
             <DirectionAwareHover imageUrl={"/assets/programing.webp"} />
           </MotionDiv>
         </div>

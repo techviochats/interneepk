@@ -36,12 +36,12 @@ const CourseCreate = () => {
     },
   ];
   return (
-    <div className="flex h-[50rem] bg-white gap-x-5 mt-20 relative">
-      <div className="bg-[#F5F6F7] absolute top-0 left-0 h-72 rounded-full w-72"></div>
-      <div className="bg-[#F5F6F7] absolute top-1/3 right-24 h-72 rounded-full w-72 z-0"></div>
-      <div className="bg-[#F5F6F7] absolute bottom-0 left-24 h-72 rounded-full w-72 z-0"></div>
+    <div className="flex flex-col gap-y-6 sm:gap-y-0 sm:flex-row  sm:h-[50rem] bg-white gap-x-5 mt-20 relative px-4 sm:px-0">
+      <div className="bg-[#F5F6F7] absolute top-0 left-0 sm:h-72 rounded-full sm:w-72 w-56"></div>
+      <div className="bg-[#F5F6F7] absolute top-1/3 right-24 sm:h-72 rounded-full sm:w-72 z-0 hidden sm:block"></div>
+      <div className="bg-[#F5F6F7] absolute bottom-0 left-24 h-72 rounded-full w-72 z-0 hidden sm:block"></div>
       {/* image */}
-      <div className="w-[45%] flex h-full items-center -ml-5 overflow-hidden">
+      <div className="sm:w-[45%] w-full flex h-full items-center sm:-ml-5 overflow-hidden">
         <MotionDiv className="w-full relative aspect-square " x1="0" x2="-50%">
           <Image
             src={"/assets/task-three.webp"}
@@ -51,8 +51,8 @@ const CourseCreate = () => {
           />
         </MotionDiv>
       </div>
-      <div className="w-[50%] z-10">
-        <div className=" w-[84%] h-full flex flex-col gap-y-4">
+      <div className="w-full sm:w-[50%] z-10">
+        <div className="w-full sm:w-[84%] h-full flex flex-col gap-y-4">
           <div className="leading-none">
             <h2 className="font-semibold">
               Are you Tech Instructor or Content Creator?
@@ -66,7 +66,7 @@ const CourseCreate = () => {
             instructor and content creator to make some revenue? Just visit Our
             LMS Intructor Portal
           </p>
-          <div className="w-full h-full grid grid-cols-2">
+          <div className="w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-y-4 sm:gap-y-0">
             {data.map((Item) => (
               <div key={Item.id} className="flex gap-x-2">
                 <MotionDiv x1="0" x2="0" y1="0" y2="50%">
