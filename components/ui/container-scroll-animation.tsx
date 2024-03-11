@@ -60,7 +60,7 @@ export const ContainerScroll = ({
           />
         </div>
       </div>
-      <span className="border-2 button-gradient text-white py-3 px-10 rounded-full text-sm hover:bg-internee-theme/80 text-center mx-auto cursor-pointer z-[99]">
+      <span className="border-2 text-white py-3 px-10 rounded-full text-sm hover:bg-internee-theme/80 text-center mx-auto cursor-pointer z-[99] bg-internee-theme">
         Search More
       </span>
     </>
@@ -102,7 +102,7 @@ export const Card = ({
         rotateX: rotate, // rotate in X-axis
         scale,
         boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+          "0 0 #0000004d, 0 9px 8px #0000004a, 0 4px 4px #00000042, 0 20px 20px #00000026, 0 20px 20px #0000000a, 0 20px 20px #00000003",
       }}
       className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-2 sm:border-4 border-[#6C6C6C] sm:p-6 p-3 bg-[#222222] rounded-[30px] shadow-2xl "
     >

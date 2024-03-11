@@ -1,0 +1,162 @@
+"use client";
+import React from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Eye, EyeOff } from "lucide-react";
+import * as z from "zod";
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+// import SocialButton from "./social-button";
+
+import { LoginSchema } from "@/schemas";
+import { getLogin } from "@/lib/app-write-auth";
+import { FormError, FormSuccess } from "@/components/form-message";
+
+const SignInForm = () => {
+  const [passwordText, setPassword] = React.useState<"password" | "text">(
+    "password"
+  );
+  const [isPending, setTransition] = React.useTransition();
+  const [isSuccess, setSuccessMessage] = React.useState<string>("");
+  const [isError, setErrorMessage] = React.useState<string>("");
+
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl");
+
+  const errorProviderMessage =
+    searchParams.get("error") === "OAuthAccountNotLinked"
+      ? "This email is already registered with another account!"
+      : "";
+
+  // form validation
+  const form = useForm<z.infer<typeof LoginSchema>>({
+    resolver: zodResolver(LoginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  //   submission of form
+  const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
+    setErrorMessage("");
+    setSuccessMessage("");
+    setTransition(() => {
+      getLogin(values)
+        .then((res) => {
+          if (res.error) {
+            setErrorMessage(res.error);
+            return;
+          }
+          setSuccessMessage("Login Successful");
+        })
+        .catch((error) => {
+          setErrorMessage(error.error || "Some error Occurred");
+        });
+    });
+  };
+
+  return (
+    <>
+      <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <h1 className="mb-8 text-3xl text-center font-bold">Sign In</h1>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      type="email"
+                      className="block border border-grey-light w-full p-3 rounded mb-4"
+                      placeholder="Email"
+                      disabled={isPending}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <div className="relative w-full">
+                      <Input
+                        type={passwordText}
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        placeholder="Password"
+                        disabled={isPending}
+                        {...field}
+                      />
+                      <Button
+                        size={"icon"}
+                        variant={"ghost"}
+                        type="button"
+                        className="absolute top-0 right-0"
+                        disabled={isPending}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (passwordText === "password") {
+                            setPassword("text");
+                          } else {
+                            setPassword("password");
+                          }
+                        }}
+                      >
+                        {passwordText === "password" ? (
+                          <Eye className="w-5 h-5" />
+                        ) : (
+                          <EyeOff className="w-5 h-5" />
+                        )}
+                      </Button>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            {isSuccess && <FormSuccess message={isSuccess} />}
+            {(isError || errorProviderMessage) && (
+              <FormError message={isError || errorProviderMessage} />
+            )}
+            {/* <SocialButton /> */}
+            <Button type="submit" className="w-full" disabled={isPending}>
+              Login
+            </Button>
+          </form>
+        </Form>
+      </div>
+
+      <div className="text-grey-dark mt-6">
+        Don't have an account?&nbsp;
+        <Link
+          className="border-b border-blue text-blue underline text-sky-600"
+          href={"/sign-up"}
+        >
+          SignUp
+        </Link>
+        .
+      </div>
+    </>
+  );
+};
+
+export default SignInForm;
