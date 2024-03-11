@@ -5,3 +5,10 @@ export interface ChildrenTypes {
 }
 
 export type oAuthType = "github" | "google" | "facebook" | "twitter";
+
+export interface userState {
+  userData: Object;
+  isLoading: boolean;
+  isError: boolean;
+  addData: () => void;
+}

@@ -60,7 +60,8 @@ const SignInForm = () => {
             setErrorMessage(res.error);
             return;
           }
-          setSuccessMessage("Login Successful");
+          window.location.reload();
+          window.location.href = "/";
         })
         .catch((error) => {
           setErrorMessage(error.error || "Some error Occurred");

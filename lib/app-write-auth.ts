@@ -7,7 +7,7 @@ import { RegisterSchema } from "@/schemas/register-schema";
 import { LoginSchema } from "@/schemas/login-schema";
 import { APP_DOMAIN } from "@/constant";
 
-const account = new Account(client);
+export const account = new Account(client);
 
 export const getRegister = async (values: z.infer<typeof RegisterSchema>) => {
   const validateField = RegisterSchema.safeParse(values);

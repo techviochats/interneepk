@@ -1,11 +1,12 @@
-import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 import NavbarButton from "./_components/navbar-button";
+import NavAuthButton from "./_components/nav-auth-button";
 
 const Navbar = () => {
+  
   return (
     <div className="fixed top-0 inset-x-0 h-28 py-8 px-4 md:px-12 z-[999] bg-white border-2 sm:border-none shadow-lg sm:shadow-none">
       <div className="w-full flex justify-between items-center transition-all">
@@ -40,12 +41,7 @@ const Navbar = () => {
           >
             Job Portal
           </Link>
-          <Link
-            href="/sign-in"
-            className="text-internee-theme font-semibold px-5 py-3 rounded-full border-2 border-internee-theme hover:border-internee-theme/60 hover:text-internee-theme/60 transition-all duration-300 ease-in-out"
-          >
-            Internee&apos;s Login
-          </Link>
+          <NavAuthButton />
         </div>
       </div>
     </div>
