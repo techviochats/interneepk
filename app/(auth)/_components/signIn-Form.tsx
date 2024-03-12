@@ -83,7 +83,7 @@ const SignInForm = () => {
                   <FormControl>
                     <Input
                       type="email"
-                      className="block border border-grey-light w-full p-3 rounded mb-4"
+                      className="block border border-grey-light w-full p-3 rounded mb-4 disabled:bg-gray-500/10 disabled:cursor-not-allowed"
                       placeholder="Email"
                       disabled={isPending}
                       {...field}
@@ -102,7 +102,7 @@ const SignInForm = () => {
                     <div className="relative w-full">
                       <Input
                         type={passwordText}
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4 disabled:bg-gray-500/10 disabled:cursor-not-allowed"
                         placeholder="Password"
                         disabled={isPending}
                         {...field}
@@ -139,7 +139,11 @@ const SignInForm = () => {
               <FormError message={isError || errorProviderMessage} />
             )}
             {/* <SocialButton /> */}
-            <Button type="submit" className="w-full" disabled={isPending}>
+            <Button
+              type="submit"
+              className="w-full disabled:bg-black/70 disabled:cursor-not-allowed"
+              disabled={isPending}
+            >
               Login
             </Button>
           </form>

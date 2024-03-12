@@ -1,4 +1,4 @@
-import { ChildrenTypes } from "@/@types/children-types";
+import { ChildrenTypes } from "@/@types";
 import Footer from "@/components/footer";
 import Navbar from "@/components/header/navbar";
 import React from "react";

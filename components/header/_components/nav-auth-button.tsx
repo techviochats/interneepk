@@ -5,12 +5,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@/hooks/use-current-user";
 import { deepClone } from "@/lib/deep-clone";
-import { account } from "@/lib/app-write-auth";
+import { account } from "@/lib/app-write-config";
 
 const NavAuthButton = () => {
   const { isError, userData, isLoading } = useUser();
   const data = deepClone(userData);
-  console.log(data);
+
   return (
     <>
       {!!data.email === false ? (

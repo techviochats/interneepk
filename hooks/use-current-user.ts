@@ -1,4 +1,4 @@
-import { account } from "@/lib/app-write-auth";
+import { account } from "@/lib/app-write-config";
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 import { userState } from "@/@types";
