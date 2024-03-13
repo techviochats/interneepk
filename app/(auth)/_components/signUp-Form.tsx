@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Eye, EyeOff } from "lucide-react";
 import * as z from "zod";
 
@@ -22,6 +21,9 @@ import { Input } from "@/components/ui/input";
 import { RegisterSchema } from "@/schemas/register-schema";
 import { getRegister } from "@/lib/app-write-auth";
 import { FormError, FormSuccess } from "@/components/form-message";
+import { SocialButton } from "./social-button";
+
+import BreadCrumbCustom from "@/components/ui/bread-crumb-custom";
 
 const SignUpForm = () => {
   // states for password to text
@@ -31,6 +33,7 @@ const SignUpForm = () => {
   const [isPending, setTransition] = React.useTransition();
   const [isSuccess, setSuccessMessage] = React.useState<string>("");
   const [isError, setErrorMessage] = React.useState<string>("");
+  const [isLoading, setLoading] = React.useState<boolean>(false);
 
   // form validation
   const form = useForm<z.infer<typeof RegisterSchema>>({
@@ -46,23 +49,30 @@ const SignUpForm = () => {
   async function onSubmit(values: z.infer<typeof RegisterSchema>) {
     setErrorMessage("");
     setSuccessMessage("");
+    setLoading(true);
     setTransition(() => {
       getRegister(values)
         .then((response) => {
           if (!response.data) {
             setErrorMessage(response.error);
+            setLoading(false);
             return;
           }
           setSuccessMessage(response.data);
+          setLoading(false);
         })
         .catch((error) => {
           setErrorMessage(error.message);
+          setLoading(false);
         });
     });
   }
 
   return (
     <>
+      <div className="mb-2">
+        <BreadCrumbCustom />
+      </div>
       <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
         <h1 className="mb-8 text-3xl text-center font-bold">Sign up</h1>
         <Form {...form}>
@@ -146,8 +156,12 @@ const SignUpForm = () => {
             />
             {isSuccess && <FormSuccess message={isSuccess} />}
             {isError && <FormError message={isError} />}
-            {/* <SocialButton /> */}
-            <Button type="submit" className="w-full" disabled={isPending}>
+            <SocialButton />
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isPending || isLoading}
+            >
               Create Account
             </Button>
           </form>

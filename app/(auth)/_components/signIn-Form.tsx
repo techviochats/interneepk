@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -23,6 +22,8 @@ import { Input } from "@/components/ui/input";
 import { LoginSchema } from "@/schemas";
 import { getLogin } from "@/lib/app-write-auth";
 import { FormError, FormSuccess } from "@/components/form-message";
+import { SocialButton } from "./social-button";
+import BreadCrumbCustom from "@/components/ui/bread-crumb-custom";
 
 const SignInForm = () => {
   const [passwordText, setPassword] = React.useState<"password" | "text">(
@@ -31,14 +32,7 @@ const SignInForm = () => {
   const [isPending, setTransition] = React.useTransition();
   const [isSuccess, setSuccessMessage] = React.useState<string>("");
   const [isError, setErrorMessage] = React.useState<string>("");
-
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl");
-
-  const errorProviderMessage =
-    searchParams.get("error") === "OAuthAccountNotLinked"
-      ? "This email is already registered with another account!"
-      : "";
+  const [isLoading, setLoading] = React.useState<boolean>(false);
 
   // form validation
   const form = useForm<z.infer<typeof LoginSchema>>({
@@ -53,17 +47,21 @@ const SignInForm = () => {
   const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
     setErrorMessage("");
     setSuccessMessage("");
+    setLoading(true);
     setTransition(() => {
       getLogin(values)
         .then((res) => {
           if (res.error) {
             setErrorMessage(res.error);
+            setLoading(false);
             return;
           }
+          setLoading(false);
           window.location.reload();
           window.location.href = "/";
         })
         .catch((error) => {
+          setLoading(false);
           setErrorMessage(error.error || "Some error Occurred");
         });
     });
@@ -71,6 +69,9 @@ const SignInForm = () => {
 
   return (
     <>
+      <div className="mb-3">
+        <BreadCrumbCustom />
+      </div>
       <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
         <h1 className="mb-8 text-3xl text-center font-bold">Sign In</h1>
         <Form {...form}>
@@ -135,14 +136,12 @@ const SignInForm = () => {
               )}
             />
             {isSuccess && <FormSuccess message={isSuccess} />}
-            {(isError || errorProviderMessage) && (
-              <FormError message={isError || errorProviderMessage} />
-            )}
-            {/* <SocialButton /> */}
+            {isError && <FormError message={isError} />}
+            <SocialButton />
             <Button
               type="submit"
               className="w-full disabled:bg-black/70 disabled:cursor-not-allowed"
-              disabled={isPending}
+              disabled={isPending || isLoading}
             >
               Login
             </Button>

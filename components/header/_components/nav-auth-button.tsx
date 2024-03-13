@@ -6,11 +6,29 @@ import { Button } from "@/components/ui/button";
 import { useUser } from "@/hooks/use-current-user";
 import { deepClone } from "@/lib/deep-clone";
 import { account } from "@/lib/app-write-config";
+import { Loader2 } from "lucide-react";
 
 const NavAuthButton = () => {
-  const { isError, userData, isLoading } = useUser();
+  const [loadingLogout, setLoadingLogout] = React.useState<boolean>(false);
+  const { isError, userData, isLoading, isAdmin } = useUser();
   const data = deepClone(userData);
-
+  if (isLoading) {
+    return (
+      <div className="animate-spin">
+        <Loader2 className="w-5 h-5 text-internee-theme" />
+      </div>
+    );
+  }
+  if (isError) {
+    return (
+      <div>
+        Oops Some Error Occured <br />
+        <span className="text-muted-foreground text-xs">
+          Contact to internee.pk with your email
+        </span>
+      </div>
+    );
+  }
   return (
     <>
       {!!data.email === false ? (
@@ -22,8 +40,12 @@ const NavAuthButton = () => {
         </Link>
       ) : (
         <Button
+          disabled={loadingLogout}
+          className="disabled:opacity-50 transition-all duration-300 ease-in-out disabled:cursor-not-allowed"
           onClick={async () => {
+            setLoadingLogout(true);
             await account.deleteSession("current");
+            setLoadingLogout(false);
             window.location.reload();
           }}
         >

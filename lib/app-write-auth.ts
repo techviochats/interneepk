@@ -5,7 +5,7 @@ import { account } from "@/lib/app-write-config";
 import { oAuthType } from "@/@types";
 import { RegisterSchema } from "@/schemas/register-schema";
 import { LoginSchema } from "@/schemas/login-schema";
-import { APP_DOMAIN } from "@/constant";
+import { VERIFIED_USER, APP_AUTH_SUCCESS } from "@/constant";
 
 export const getRegister = async (values: z.infer<typeof RegisterSchema>) => {
   const validateField = RegisterSchema.safeParse(values);
@@ -23,7 +23,8 @@ export const getRegister = async (values: z.infer<typeof RegisterSchema>) => {
       values.email,
       values.password
     );
-    await account.createVerification(APP_DOMAIN!);
+
+    await account.createVerification(VERIFIED_USER!);
     console.log("Verification Email Sent");
     await account.deleteSession(session.$id);
     return { data: "Verification Email Sent" };
@@ -43,10 +44,15 @@ export const getLogin = async (values: z.infer<typeof LoginSchema>) => {
       values.email,
       values.password
     );
+
     const getVerifiedUser = await account.get();
     if (!getVerifiedUser.emailVerification) {
+      await account.createVerification(VERIFIED_USER!);
       await account.deleteSession(promise.$id);
-      return { error: "Email not verified" };
+      return {
+        error:
+          "We have sending an another email to your account! To Verify yourself",
+      };
     }
     return { data: getVerifiedUser };
   } catch (error: any) {
@@ -60,7 +66,7 @@ export const getOAuthLogin = async (provider: oAuthType) => {
   }
 
   try {
-    // const promise = account.createOAuth2Session(provider,");
+    account.createOAuth2Session(provider, APP_AUTH_SUCCESS);
   } catch (error) {
     console.log(error);
   }

@@ -10,5 +10,10 @@ export interface userState {
   userData: Object;
   isLoading: boolean;
   isError: boolean;
+  isAdmin: boolean;
   addData: () => void;
+}
+
+export interface breadCrumbsTypes {
+  path: string[];
 }
