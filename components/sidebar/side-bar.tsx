@@ -33,6 +33,7 @@ const SideBar = () => {
           {sidebarLink?.map((sideNav) => (
             <Link
               href={sideNav.href}
+              target="_blank"
               className="py-4 px-3 hover:bg-internee-theme/30 group transition-all duration-300 w-full"
               key={sideNav.id}
               onClick={() => {
