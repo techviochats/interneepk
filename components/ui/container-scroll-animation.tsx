@@ -60,7 +60,10 @@ export const ContainerScroll = ({
           />
         </div>
       </div>
-      <Link href={"/allcategories"} className="border-2 text-white py-3 px-10 rounded-full text-sm hover:bg-internee-theme/80 text-center mx-auto cursor-pointer z-[99] bg-internee-theme">
+      <Link
+        href={"/allcategories"}
+        className="border-2 text-white py-3 px-10 rounded-full text-sm hover:bg-internee-theme/80 text-center mx-auto cursor-pointer z-[99] bg-internee-theme"
+      >
         Search More
       </Link>
     </>
@@ -117,7 +120,13 @@ export const Card = ({
                 "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
             }}
           >
-            <Link href={user.designation}>
+            <Link
+              href={user.designation}
+              onClick={() =>
+                user.designation === "/" &&
+                window.alert("This internship is not available for now")
+              }
+            >
               <div className="absolute top-2 right-2 rounded-full text-xs font-bold bg-white px-2 py-1">
                 {user.badge}
               </div>
