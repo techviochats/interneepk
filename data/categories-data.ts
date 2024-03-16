@@ -136,14 +136,14 @@ export const mobileDevelopment = [
   {
     id: 4,
     title: "Android Internship",
-    link: "/",
+    link: "https://docs.google.com/forms/d/15UTNYUfrqyDzla707mjwpB7ntQmDOK-AY_0wAbKdPxc/edit?usp=forms_home&ths=true",
   },
 ];
 export const cloudComputing = [
   {
     id: 1,
     title: "Cloud Computing Internship",
-    link: "https://docs.google.com/forms/d/1EdG5Tn5e-ZEcpS1DkWiNM42xEZOoF3MYBYFgd2GQ7rY/edit",
+    link: "https://docs.google.com/forms/d/1UdWF8jGctdKT0I_ujEpa1A04JDDlNSQMPW-aJGjzeoU/edit",
   },
 ];
 export const socialMedia = [
@@ -156,7 +156,7 @@ export const socialMedia = [
 export const videoEditing = [
   {
     id: 1,
-    title: "Social Media Internship",
+    title: "Video Editing Internship",
     link: "https://docs.google.com/forms/d/1Ss56SkzTy3kBS3DJsoiGbRSnHKqWBB4MqwBIMKSuFro/edit",
   },
 ];
@@ -192,6 +192,7 @@ export const allCategories = [
   ...machinelearning,
   ...cybersecurity,
 ];
+
 export const paramsValue: categoryParamsType[] = [
   "allcategories",
   "webdevelopment",
