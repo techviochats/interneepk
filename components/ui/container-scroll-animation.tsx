@@ -38,7 +38,7 @@ export const ContainerScroll = ({
   const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  
+
   return (
     <>
       <div
@@ -60,9 +60,9 @@ export const ContainerScroll = ({
           />
         </div>
       </div>
-      <span className="border-2 text-white py-3 px-10 rounded-full text-sm hover:bg-internee-theme/80 text-center mx-auto cursor-pointer z-[99] bg-internee-theme">
+      <Link href={"/allcategories"} className="border-2 text-white py-3 px-10 rounded-full text-sm hover:bg-internee-theme/80 text-center mx-auto cursor-pointer z-[99] bg-internee-theme">
         Search More
-      </span>
+      </Link>
     </>
   );
 };
@@ -117,20 +117,20 @@ export const Card = ({
                 "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
             }}
           >
-            <div className="absolute top-2 right-2 rounded-full text-xs font-bold bg-white px-2 py-1">
-              {user.badge}
-            </div>
-            <img
-              src={user.image}
-              className="rounded-tr-md rounded-tl-md text-sm "
-              alt="thumbnail"
-            />
-            <div className="p-4">
-              <h1 className="font-semibold text-sm ">{user.name}</h1>
-              <Link href={user.designation} className=" text-gray-500 text-xs ">
-                {"Click to know more"}
-              </Link>
-            </div>
+            <Link href={user.designation}>
+              <div className="absolute top-2 right-2 rounded-full text-xs font-bold bg-white px-2 py-1">
+                {user.badge}
+              </div>
+              <img
+                src={user.image}
+                className="rounded-tr-md rounded-tl-md text-sm "
+                alt="thumbnail"
+              />
+              <div className="p-4">
+                <h1 className="font-semibold text-sm ">{user.name}</h1>
+                <p className="text-gray-500 text-xs ">{"Click to know more"}</p>
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>

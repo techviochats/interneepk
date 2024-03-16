@@ -18,25 +18,29 @@ const Navbar = () => {
         </div>
         <div className="sm:flex gap-x-8 h-full items-center text-sm hidden">
           <Link
-            href="/blog-editor"
+            href="/coming-soon.html"
+            target="_blank"
             className="text-internee-text font-semibold hover:text-internee-text/50"
           >
             Blogs
           </Link>
           <Link
-            href="/"
+            href="/coming-soon.html"
+            target="_blank"
             className="text-internee-text font-semibold hover:text-internee-text/50"
           >
             Company Collaboration
           </Link>
           <Link
-            href="/"
+            href="/coming-soon.html"
+            target="_blank"
             className="text-internee-text font-semibold hover:text-internee-text/50"
           >
             Mobile Apps
           </Link>
           <Link
-            href="/"
+            href="/coming-soon.html"
+            target="_blank"
             className="text-white font-semibold px-5 py-3 rounded-full bg-internee-theme hover:bg-internee-theme/60 transition-all duration-300 ease-in-out"
           >
             Job Portal

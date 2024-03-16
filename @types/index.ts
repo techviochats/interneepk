@@ -17,3 +17,36 @@ export interface userState {
 export interface breadCrumbsTypes {
   path: string[];
 }
+
+export type categoryType =
+  | "/webdevelopment"
+  | "/graphic"
+  | "/mobiledevelopment"
+  | "/chatbot"
+  | "/websitedesign"
+  | "/cloud"
+  | "/socialmedia"
+  | "/videoediting"
+  | "/machinelearning"
+  | "/cybersecurity"
+  | "/";
+
+export type categoryParamsType =
+  | "webdevelopment"
+  | "graphic"
+  | "mobiledevelopment"
+  | "chatbot"
+  | "websitedesign"
+  | "cloud"
+  | "socialmedia"
+  | "videoediting"
+  | "machinelearning"
+  | "cybersecurity"
+  | "allcategories";
+
+export type userType = {
+  name: string;
+  designation: categoryType;
+  image: string;
+  badge: string;
+}[];

@@ -8,7 +8,7 @@ import { FormError, FormSuccess } from "@/components/form-message";
 
 import { Button } from "@/components/ui/button";
 import { getVerifiedEmail } from "@/lib/app-write-auth";
-import { set } from "zod";
+
 
 const VerificationCard = () => {
   const searchParams = useSearchParams();

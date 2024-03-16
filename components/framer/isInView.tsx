@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { useInView, motion, Variant, Variants } from "framer-motion";
-import { ChildrenTypes } from "@/@types/children-types";
+import { ChildrenTypes } from "@/@types";
 
 interface MotionType extends ChildrenTypes {
   className?: string;

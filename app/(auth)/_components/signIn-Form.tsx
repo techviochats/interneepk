@@ -150,7 +150,7 @@ const SignInForm = () => {
       </div>
 
       <div className="text-grey-dark mt-6">
-        Don't have an account?&nbsp;
+        Don&apos;t have an account?&nbsp;
         <Link
           className="border-b border-blue text-blue underline text-sky-600"
           href={"/sign-up"}

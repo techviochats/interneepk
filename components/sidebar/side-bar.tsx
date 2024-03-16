@@ -32,13 +32,13 @@ const SideBar = () => {
           {sidebarLink?.map((sideNav) => (
             <Link
               href={sideNav.href}
-              className="py-4 px-3 hover:bg-slate-400/30 group transition-all duration-300 w-full"
+              className="py-4 px-3 hover:bg-internee-theme/30 group transition-all duration-300 w-full"
               key={sideNav.id}
               onClick={() => {
                 close();
               }}
             >
-              <p className="text-muted-foreground text-sm group-hover:text-black font-medium flex">
+              <p className="text-muted-foreground text-sm group-hover:text-internee-theme font-medium flex">
                 <sideNav.icon className="w-5 h-5 mr-2" />
                 {sideNav.label}
               </p>
@@ -55,31 +55,31 @@ const sidebarLink = [
   {
     id: 1,
     label: "Blogs",
-    href: "/blogs",
+    href: "/coming-soon.html",
     icon: SquareIcon,
   },
   {
     id: 2,
     label: "Company Collaboration",
-    href: "/collab",
+    href: "/coming-soon.html",
     icon: Building2,
   },
   {
     id: 3,
     label: "Mobile Apps",
-    href: "/mobile-apps",
+    href: "/coming-soon.html",
     icon: TabletSmartphone,
   },
   {
     id: 4,
     label: "Job Portal",
-    href: "/portal",
+    href: "/coming-soon.html",
     icon: PackageSearch,
   },
   {
     id: 5,
     label: "Internee's Login",
-    href: "/login",
+    href: "/coming-soon.html",
     icon: LogIn,
   },
 ];

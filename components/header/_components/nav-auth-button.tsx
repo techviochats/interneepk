@@ -33,7 +33,8 @@ const NavAuthButton = () => {
     <>
       {!!data.email === false ? (
         <Link
-          href="/sign-in"
+          href="/coming-soon.html"
+          target="_blank"
           className="text-internee-theme font-semibold px-5 py-3 rounded-full border-2 border-internee-theme hover:border-internee-theme/60 hover:text-internee-theme/60 transition-all duration-300 ease-in-out"
         >
           Internee&apos;s Login

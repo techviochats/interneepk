@@ -1,7 +1,6 @@
-
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-
+import { userType } from "@/@types";
 
 export function HeroScroll() {
   return (
@@ -28,10 +27,10 @@ export function HeroScroll() {
   );
 }
 
-export const users = [
+export const users: userType = [
   {
     name: "Video Editing Internship",
-    designation: "/webdevelopment",
+    designation: "/videoediting",
     image: "/assets/portrait-woman-customer-service-worker.jpg",
     badge: "Mentor",
   },
@@ -43,13 +42,13 @@ export const users = [
   },
   {
     name: "Cloud Computing Internship",
-    designation: "/webdevelopment",
+    designation: "/cloud",
     image: "/assets/cloud.jpg",
     badge: "Mentor",
   },
   {
     name: "Graphic Designing Internships",
-    designation: "/webdevelopment",
+    designation: "/graphic",
     image: "/assets/logo-designer-working-computer-desktop.jpg",
     badge: "Mentor",
   },
@@ -61,43 +60,43 @@ export const users = [
   },
   {
     name: "Chatbot Development Internship",
-    designation: "/webdevelopment",
+    designation: "/chatbot",
     image: "/assets/chatbotDevelopment.jpeg",
     badge: "Mentor",
   },
   {
     name: "Mobile App Development Internship",
-    designation: "/webdevelopment",
+    designation: "/mobiledevelopment",
     image: "/assets/app.jpeg",
     badge: "Mentor",
   },
   {
     name: "Digital Marketing Internship",
-    designation: "/webdevelopment",
+    designation: "/",
     image: "/assets/marketing-assistant.jpg",
     badge: "Mentor",
   },
   {
     name: "Cyber Security Intership",
-    designation: "/webdevelopment",
+    designation: "/cybersecurity",
     image: "/assets/hack.jpeg",
     badge: "Mentor",
   },
   {
     name: "Machine Learning Internship",
-    designation: "/webdevelopment",
+    designation: "/machinelearning",
     image: "/assets/Machine-Learning.jpeg",
     badge: "Mentor",
   },
   {
     name: "Technical Writing Internship",
-    designation: "/webdevelopment",
+    designation: "/",
     image: "/assets/young-woman-teaching-english-lessons.jpg",
     badge: "Mentor",
   },
   {
     name: "Devops Internship",
-    designation: "/webdevelopment",
+    designation: "/",
     image: "/assets/DataScience.jpeg",
     badge: "Mentor",
   },
