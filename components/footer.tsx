@@ -1,3 +1,4 @@
+import { APP_DOMAIN } from "@/constant";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -24,13 +25,13 @@ const Footer = () => {
         <div className="flex gap-x-20 flex-col sm:flex-row gap-y-6">
           <div className="flex flex-col gap-y-2 text-sm text-muted-foreground">
             <h1 className="font-semibold text-black">Company</h1>
-            <Link href="/privacy.html" target="blank">
+            <Link href={`${APP_DOMAIN}/privacy.html`} target="blank">
               Contact Us
             </Link>
-            <Link href="/privacy.html" target="blank">
+            <Link href={`${APP_DOMAIN}/privacy.html`} target="blank">
               Privacy Policy
             </Link>
-            <Link href="/policy.html" target="blank">
+            <Link href={`${APP_DOMAIN}/policy.html`} target="blank">
               Terms and Conditions
             </Link>
           </div>

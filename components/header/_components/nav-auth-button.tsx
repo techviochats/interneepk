@@ -7,6 +7,7 @@ import { useUser } from "@/hooks/use-current-user";
 import { deepClone } from "@/lib/deep-clone";
 import { account } from "@/lib/app-write-config";
 import { Loader2 } from "lucide-react";
+import { APP_DOMAIN } from "@/constant";
 
 const NavAuthButton = () => {
   const [loadingLogout, setLoadingLogout] = React.useState<boolean>(false);
@@ -33,8 +34,8 @@ const NavAuthButton = () => {
     <>
       {!!data.email === false ? (
         <Link
-          href="/coming-soon.html"
-          target="_blank"
+        href={`${APP_DOMAIN}/coming-soon.html`}
+        target="_blank"
           className="text-internee-theme font-semibold px-5 py-3 rounded-full border-2 border-internee-theme hover:border-internee-theme/60 hover:text-internee-theme/60 transition-all duration-300 ease-in-out"
         >
           Internee&apos;s Login

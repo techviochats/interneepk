@@ -11,6 +11,7 @@ import {
   PackageSearch,
   LogIn,
 } from "lucide-react";
+import { APP_DOMAIN } from "@/constant";
 const SideBar = () => {
   const { close, isOpen, open } = useSidebarHook();
 
@@ -61,25 +62,25 @@ const sidebarLink = [
   {
     id: 2,
     label: "Company Collaboration",
-    href: "/coming-soon.html",
+    href: `${APP_DOMAIN}/coming-soon.html`,
     icon: Building2,
   },
   {
     id: 3,
     label: "Mobile Apps",
-    href: "/coming-soon.html",
+    href: `${APP_DOMAIN}/coming-soon.html`,
     icon: TabletSmartphone,
   },
   {
     id: 4,
     label: "Job Portal",
-    href: "/coming-soon.html",
+    href: `${APP_DOMAIN}/coming-soon.html`,
     icon: PackageSearch,
   },
   {
     id: 5,
     label: "Internee's Login",
-    href: "/coming-soon.html",
+    href: `${APP_DOMAIN}/coming-soon.html`,
     icon: LogIn,
   },
 ];
