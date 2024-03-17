@@ -11,8 +11,19 @@ const inter = Poppins({
 
 export const metadata: Metadata = {
   title: "Internee.pk",
+
   description:
-    "Internee.pk is a platform for interns and employers to connect.",
+    "Internee.pk kickstart student`s tech careers with first internships, providing industry exposure, practical skills, and networking opportunities, paving the way for their success in the tech industry.",
+  icons: {
+    icon: "/assets/favicon.png",
+    apple: "/assets/apple-favicon.png",
+  },
+  twitter: {
+    title: "Internee.pk",
+    description:
+      "Internee.pk is a platform for interns and employers to connect.",
+  },
+  
 };
 
 export default function RootLayout({

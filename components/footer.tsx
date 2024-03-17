@@ -49,8 +49,8 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-y-2 text-sm text-muted-foreground">
             <h1 className="font-semibold text-black">Get Help</h1>
-            <Link href="/about">Training Videos</Link>
-            <Link href="/contact">Request Help</Link>
+            <a href="" target="_blank" >Training Videos</a>
+            <a target="_blank" href="/privacy.html">Request Help</a>
           </div>
           <div className="flex flex-col gap-y-2 text-xs">
             <h1 className="font-semibold text-black">Socialize with us</h1>
