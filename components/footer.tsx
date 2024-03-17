@@ -1,6 +1,6 @@
 "use client";
 import { ALLSOCIALLINKS, APP_DOMAIN, AllComponentIds } from "@/constant";
-import { useScroll } from "@/hooks/use-scroll";
+import { toScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import {
   ArrowUp,
@@ -20,7 +20,7 @@ const Footer = () => {
         className={cn(
           "absolute -top-6 right-5 h-12 w-12 rounded-full bg-internee-theme flex items-center justify-center cursor-pointer transition-all hover:bg-internee-theme/80 hover:-top-7 shadow-2xl"
         )}
-        onClick={() => useScroll(AllComponentIds["hero"])}
+        onClick={() => toScroll(AllComponentIds["hero"])}
       >
         <ArrowUp className="w-6 h-6 text-white" />
       </div>

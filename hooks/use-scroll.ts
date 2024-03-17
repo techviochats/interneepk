@@ -1,6 +1,6 @@
 import React from "react";
 
-export const useScroll = (id: string) =>
+export const toScroll = (id: string) =>
   document
     .getElementById(id)
     ?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });

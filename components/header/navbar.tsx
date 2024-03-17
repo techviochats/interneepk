@@ -7,7 +7,7 @@ import NavbarButton from "./_components/navbar-button";
 import NavAuthButton from "./_components/nav-auth-button";
 import { APP_DOMAIN, AllComponentIds } from "@/constant";
 import { usePathname, useRouter } from "next/navigation";
-import { useScroll, useShadow } from "@/hooks/use-scroll";
+import { toScroll, useShadow } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
   const router = useRouter();
   const navbarImageClick = () => {
     if (pathName === "/") {
-      useScroll(AllComponentIds["hero"]);
+      toScroll(AllComponentIds["hero"]);
     } else {
       router.push("/");
     }

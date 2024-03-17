@@ -6,7 +6,7 @@ const NotFound = () => {
     <div className="text-center mt-6">
       <h1 className="mb-4 text-6xl font-semibold text-internee-theme">404</h1>
       <p className="mb-4 text-lg text-gray-600">
-        Oops! Looks like you're lost.
+        Oops! Looks like you&apos;re lost.
       </p>
       <div className="animate-bounce">
         <svg
@@ -24,7 +24,7 @@ const NotFound = () => {
         </svg>
       </div>
       <p className="mt-4 text-gray-600">
-        Let's get you back{" "}
+        Let&apos;s get you back{" "}
         <Link href="/" className="text-blue-500">
           home
         </Link>
