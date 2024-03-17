@@ -1,10 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import TypeWriter from "@/components/ui/type-writer";
+import { APP_DOMAIN, AllComponentIds } from "@/constant";
 
 const HeroBanner = () => {
   return (
-    <div className="sm:px-12 px-4 sm:h-screen max-h-[1080px]">
+    <div
+      className="sm:px-12 px-4 sm:h-screen max-h-[1080px]"
+      id={AllComponentIds["hero"]}
+    >
       <div className="flex gap-x-4 sm:flex-row flex-col gap-y-6">
         <div className="flex flex-col gap-y-2 sm:w-[45%] w-full transition-all">
           <h1 className="text-5xl font-semibold tracking-tighter leading-[3.5rem]">
@@ -45,12 +49,20 @@ const HeroBanner = () => {
           </div>
           {/* button */}
           <div className="flex gap-x-3">
-            <button className="border-2 border-internee-theme text-internee-theme py-3 px-4 sm:px-10 rounded-full text-sm hover:border-internee-theme/60 hover:text-internee-theme/90">
+            <a
+              href={`${APP_DOMAIN}/coming-soon.html`}
+              target="_blank"
+              className="border-2 border-internee-theme text-internee-theme py-3 px-4 sm:px-10 rounded-full text-sm hover:border-internee-theme/60 hover:text-internee-theme/90"
+            >
               Job Portal
-            </button>
-            <button className="border-2 button-gradient text-white py-3 px-4 sm:px-10 rounded-full text-sm hover:bg-internee-theme/80">
+            </a>
+            <a
+              href={`${APP_DOMAIN}/coming-soon.html`}
+              target="_blank"
+              className="border-2 bg-internee-theme text-white py-3 px-4 sm:px-10 rounded-full text-sm hover:bg-internee-theme/80"
+            >
               Our Lms
-            </button>
+            </a>
           </div>
         </div>
         <div className="flex items-center justify-center bg-yellow-300 w-full sm:w-[calc(100%-45%-16px)]">

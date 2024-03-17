@@ -1,18 +1,40 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 import NavbarButton from "./_components/navbar-button";
 import NavAuthButton from "./_components/nav-auth-button";
-import { APP_DOMAIN } from "@/constant";
+import { APP_DOMAIN, AllComponentIds } from "@/constant";
+import { usePathname, useRouter } from "next/navigation";
+import { useScroll, useShadow } from "@/hooks/use-scroll";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
+  const pathName = usePathname();
+  const router = useRouter();
+  const navbarImageClick = () => {
+    if (pathName === "/") {
+      useScroll(AllComponentIds["hero"]);
+    } else {
+      router.push("/");
+    }
+  };
+  const shadow = useShadow();
   return (
-    <div className="fixed top-0 inset-x-0 h-28 py-8 px-4 md:px-12 z-[999] bg-white border-2 sm:border-none shadow-lg sm:shadow-none">
+    <div
+      className={cn(
+        "fixed top-0 inset-x-0 h-28 py-8 px-4 md:px-12 z-[999] sm:border-none shadow-none transition-all bg-white",
+        shadow && "shadow-2xl border-2 sm:border-none"
+      )}
+    >
       <div className="w-full flex justify-between items-center transition-all">
-        <Link className="w-40 h-10 relative" href={"/"}>
+        <div
+          className="w-40 h-10 relative cursor-pointer"
+          onClick={navbarImageClick}
+        >
           <Image src="/logo.webp" alt="logo" fill className="object-contain" />
-        </Link>
+        </div>
         <div className="sm:hidden flex items-center justify-center">
           <NavbarButton />
         </div>
