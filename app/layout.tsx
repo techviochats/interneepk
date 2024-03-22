@@ -4,7 +4,7 @@ import "./globals.css";
 import SidebarProvider from "@/provider/sidebar-provider";
 import AuthProvider from "@/provider/auth-provider";
 
-const inter = Poppins({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "300", "200", "500", "600", "800", "900"],
 });
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     description:
       "Internee.pk is a platform for interns and employers to connect.",
   },
-  
 };
 
 export default function RootLayout({
@@ -33,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <AuthProvider>{children}</AuthProvider>
         <SidebarProvider />
       </body>

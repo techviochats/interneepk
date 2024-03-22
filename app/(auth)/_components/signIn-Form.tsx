@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Eye, EyeOff } from "lucide-react";
 import * as z from "zod";
+import { motion } from "framer-motion";
 
 import {
   Form,
@@ -72,8 +73,27 @@ const SignInForm = () => {
       <div className="mb-3">
         <BreadCrumbCustom />
       </div>
-      <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-        <h1 className="mb-8 text-3xl text-center font-bold">Sign In</h1>
+      <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full  overflow-hidden">
+        <div className="flex justify-center -z-[9]">
+          {"Sign In".split("").map((val, index) => (
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: index * 0.1,
+                  ease: [0.83, 0, 0.17, 1],
+                },
+              }}
+              animate={{}}
+              key={index}
+              className="mb-8 text-3xl text-center font-bold"
+            >
+              {val}
+            </motion.h1>
+          ))}
+        </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField

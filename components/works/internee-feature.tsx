@@ -49,9 +49,9 @@ const InterneeFeature = () => {
       <h1 className="capitalize text-4xl sm:text-5xl font-semibold tracking-tighter">
         Why Internee.pk?
       </h1>
-      <div className="flex flex-col sm:flex-row gap-x-4 gap-y-4 w-full z-10">
+      <div className="flex flex-col sm:flex-row items-start gap-x-4 gap-y-4 w-full z-10">
         {/* svg with data */}
-        <div className="flex h-full flex-col">
+        <div className="flex h-full flex-col ">
           {data?.map((val, index) => (
             <div className="flex gap-x-4" key={val.id}>
               <MotionDiv
@@ -60,6 +60,7 @@ const InterneeFeature = () => {
                 x2="0"
                 y1="0"
                 y2="-50%"
+                index={index}
               >
                 <Image
                   src={val.Icon}
@@ -88,8 +89,13 @@ const InterneeFeature = () => {
           ))}
         </div>
         {/* image */}
-        <div className="p-1 overflow-hidden pr-4 sm:pr-4">
-          <MotionDiv className="relative w-72 sm:h-[90%]" x1="0" x2="50%">
+        <div className="sm:p-1 overflow-hidden pr-0 sm:pr-4 sticky top-28 sm:ml-8 mx-auto">
+          <MotionDiv
+            className="relative w-64 sm:w-96 sm:h-[90%] rounded-md"
+            x1="0"
+            x2="50%"
+                  
+          >
             <DirectionAwareHover imageUrl={"/assets/programing.webp"} />
           </MotionDiv>
         </div>

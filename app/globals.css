@@ -35,6 +35,8 @@
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+
+    --internee-theme: #68B84F;
   }
 
   .dark {
@@ -87,7 +89,11 @@ body,
   display: none
 }
 
+*::selection {
+  background-color: var(--internee-theme);
+  color: white;
 
+}
 
 @layer base {
   * {

@@ -61,7 +61,7 @@ const Navbar = () => {
             Mobile Apps
           </Link>
           <Link
-            href={`${APP_DOMAIN}/coming-soon.html`}
+            href={`https://job.internee.pk/`}
             target="_blank"
             className="text-white font-semibold px-5 py-3 rounded-full bg-internee-theme hover:bg-internee-theme/60 transition-all duration-300 ease-in-out"
           >

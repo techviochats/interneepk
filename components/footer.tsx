@@ -1,7 +1,9 @@
 "use client";
-import { ALLSOCIALLINKS, APP_DOMAIN, AllComponentIds } from "@/constant";
-import { toScroll } from "@/hooks/use-scroll";
-import { cn } from "@/lib/utils";
+
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
 import {
   ArrowUp,
   FacebookIcon,
@@ -9,9 +11,10 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+
+import { ALLSOCIALLINKS, APP_DOMAIN, AllComponentIds } from "@/constant";
+import { toScroll } from "@/hooks/use-scroll";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
   return (
@@ -49,8 +52,12 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-y-2 text-sm text-muted-foreground">
             <h1 className="font-semibold text-black">Get Help</h1>
-            <a href="" target="_blank" >Training Videos</a>
-            <a target="_blank" href="/privacy.html">Request Help</a>
+            <a href="" target="_blank">
+              Training Videos
+            </a>
+            <a target="_blank" href="/privacy.html">
+              Request Help
+            </a>
           </div>
           <div className="flex flex-col gap-y-2 text-xs">
             <h1 className="font-semibold text-black">Socialize with us</h1>
