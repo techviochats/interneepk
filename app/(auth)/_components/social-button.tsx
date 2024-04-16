@@ -1,8 +1,6 @@
 "use client";
-import { FaGithub } from "react-icons/fa";
 
-import { FcGoogle } from "react-icons/fc";
-
+import { FaGithub, FcGoogle } from "@/constant";
 import { Button } from "@/components/ui/button";
 import { getOAuthLogin } from "@/lib/app-write-auth";
 

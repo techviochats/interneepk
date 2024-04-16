@@ -9,7 +9,7 @@ const HeroBanner = () => {
       className="sm:px-12 px-4 sm:h-screen max-h-[1080px]"
       id={AllComponentIds["hero"]}>
       <div className="flex gap-x-4 sm:flex-row flex-col gap-y-6">
-        <div className="flex flex-col gap-y-2 sm:w-[45%] w-full transition-all">
+        <div className="flex flex-col gap-y-5 sm:w-[45%] w-full transition-all">
           <HeroBannerComment />
           <h1 className="text-4xl px-1 sm:px-0 font-semibold tracking-tighter leading-[3.5rem] text-internee-theme ">
             <TypeWriter />

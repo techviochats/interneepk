@@ -1,4 +1,4 @@
-import { ID } from "appwrite";
+import { clientId as ID, clientId } from "@/lib/app-write-config";
 import * as z from "zod";
 
 import { account } from "@/lib/app-write-config";
@@ -13,6 +13,7 @@ export const getRegister = async (values: z.infer<typeof RegisterSchema>) => {
     return { error: "Invalid Input" };
   }
   try {
+  
     await account.create(
       ID.unique(),
       values.email,
@@ -46,6 +47,7 @@ export const getLogin = async (values: z.infer<typeof LoginSchema>) => {
     );
 
     const getVerifiedUser = await account.get();
+
     if (!getVerifiedUser.emailVerification) {
       await account.createVerification(VERIFIED_USER!);
       await account.deleteSession(promise.$id);
@@ -54,6 +56,7 @@ export const getLogin = async (values: z.infer<typeof LoginSchema>) => {
           "We have sending an another email to your account! To Verify yourself",
       };
     }
+
     return { data: getVerifiedUser };
   } catch (error: any) {
     return { error: error?.response?.message || "Some error Occurred" };
@@ -64,7 +67,6 @@ export const getOAuthLogin = async (provider: oAuthType) => {
   if (provider !== "github") {
     return { error: "Invalid Input" };
   }
-
   try {
     account.createOAuth2Session(provider, APP_AUTH_SUCCESS);
   } catch (error) {

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Toaster } from 'sonner';
+
 import "./globals.css";
 import SidebarProvider from "@/provider/sidebar-provider";
 import AuthProvider from "@/provider/auth-provider";
@@ -35,6 +37,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <AuthProvider>{children}</AuthProvider>
         <SidebarProvider />
+        <Toaster/>
       </body>
     </html>
   );

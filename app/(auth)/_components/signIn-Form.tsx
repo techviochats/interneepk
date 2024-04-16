@@ -57,6 +57,7 @@ const SignInForm = () => {
             setLoading(false);
             return;
           }
+
           setLoading(false);
           window.location.reload();
           window.location.href = "/";
@@ -76,22 +77,23 @@ const SignInForm = () => {
       <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full  overflow-hidden">
         <div className="flex justify-center -z-[9]">
           {"Sign In".split("").map((val, index) => (
-            <motion.h1
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{
-                y: 0,
-                opacity: 1,
-                transition: {
-                  delay: index * 0.1,
-                  ease: [0.83, 0, 0.17, 1],
-                },
-              }}
-              animate={{}}
-              key={index}
-              className="mb-8 text-3xl text-center font-bold"
-            >
-              {val}
-            </motion.h1>
+            <div key={index}>
+              <motion.h1
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    delay: index * 0.1,
+                    ease: [0.83, 0, 0.17, 1],
+                  },
+                }}
+                key={index}
+                className="mb-8 text-3xl text-center font-bold"
+              >
+                {val}
+              </motion.h1>
+            </div>
           ))}
         </div>
         <Form {...form}>

@@ -57,7 +57,7 @@ const VerificationCard = () => {
       {errorMessage && <FormError message={errorMessage} />}
       {successMessage && <FormSuccess message={successMessage} />}
       <Button className="w-full text-muted-foreground" variant={"link"} asChild>
-        <Link href="/auth/sign-in">Back to Login</Link>
+        <Link href="/sign-in">Back to Login</Link>
       </Button>
     </div>
   );

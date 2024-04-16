@@ -1,8 +1,9 @@
 "use client";
 
+import React from "react";
+
 import { ChildrenTypes } from "@/@types";
 import { useUser } from "@/hooks/use-current-user";
-import React from "react";
 
 const AuthProvider = ({ children }: ChildrenTypes) => {
   const { addData } = useUser();

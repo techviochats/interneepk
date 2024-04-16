@@ -6,12 +6,22 @@ export interface ChildrenTypes {
 
 export type oAuthType = "github" | "google" | "facebook" | "twitter";
 
+export type userDataType = {
+  user_id: string;
+  full_name: string;
+  user_image: string | null;
+  isAdmin: boolean;
+  email_verification: boolean;
+  email: string;
+};
 export interface userState {
   userData: Object;
   isLoading: boolean;
   isError: boolean;
   isAdmin: boolean;
+  userDbData: Object;
   addData: () => void;
+  logOut: () => void;
 }
 
 export interface breadCrumbsTypes {
