@@ -3,7 +3,7 @@ import SettingForm from "./_components/setting-form";
 
 const SettingPage = () => {
   return (
-    <div>
+    <div className="px-14 flex flex-col">
       <SettingForm />
     </div>
   );

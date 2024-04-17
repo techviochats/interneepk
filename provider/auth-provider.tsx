@@ -11,7 +11,7 @@ const AuthProvider = ({ children }: ChildrenTypes) => {
   React.useEffect(() => {
     provideData();
   }, [provideData]);
-  
+
   return children;
 };
 

@@ -50,9 +50,7 @@ const UserLists = ({ $id, email, labels, name }: UserListsProps) => {
           </div>
         </div>
       </div>
-      {!amI && !isAdmin && (
-        <UserDropdownList isAdmin={isAdmin} id={data?.$id} />
-      )}
+      {!amI && !isAdmin && <UserDropdownList isAdmin={isAdmin} id={$id} />}
     </div>
   );
 };

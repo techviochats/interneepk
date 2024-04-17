@@ -12,6 +12,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { makeAdmin } from "@/actions/server-Actions/make-admin";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface UserDropdownListProps {
   isAdmin: boolean;
@@ -20,13 +23,33 @@ interface UserDropdownListProps {
 const UserDropdownList = ({ isAdmin, id }: UserDropdownListProps) => {
   const [isOpen, setOpen] = React.useState<boolean>(false);
   const [isClient, setIsClient] = React.useState<boolean>(false);
+  const [isPending, startTransition] = React.useTransition();
+  const router = useRouter();
+
+  let loadingToastId: null | undefined | string | any = null;
 
   React.useEffect(() => {
     setIsClient(true);
   }, []);
 
   if (!isClient) return null;
-  const handleAdmin = () => {};
+  const handleAdmin = (id: string) => {
+    loadingToastId = toast.loading("Making Admin...");
+    startTransition(() => {
+      makeAdmin(id)
+        .then((res) => {
+          if (res.error) return toast.error(res.error);
+          router.refresh();
+          toast.dismiss(loadingToastId);
+          return toast.success(res.message);
+        })
+        .catch((res) => {
+          console.log(res);
+          toast.dismiss(loadingToastId);
+          return toast.error(res.error);
+        });
+    });
+  };
   return (
     <DropdownMenu open={isOpen} onOpenChange={() => setOpen(!isOpen)}>
       <DropdownMenuTrigger asChild>
@@ -45,7 +68,11 @@ const UserDropdownList = ({ isAdmin, id }: UserDropdownListProps) => {
         <DropdownMenuLabel>Options</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {!isAdmin && (
-          <DropdownMenuItem className="p-0" onClick={handleAdmin}>
+          <DropdownMenuItem
+            disabled={isPending}
+            className="p-0 disabled:cursor-not-allowed disabled:text-internee-absoluteTheme disabled:bg-internee-theme/50"
+            onClick={() => handleAdmin(id)}
+          >
             <div className="w-full py-3 transition-all rounded-md px-2 cursor-pointer hover:bg-internee-theme hover:text-internee-absoluteTheme flex">
               <ShieldAlert className="w-4 h-4 mr-1 text-destructive mb-px" />
               Make Admin

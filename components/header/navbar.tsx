@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { Link } from "next-view-transitions";
 
 import NavbarButton from "./_components/navbar-button";
 import NavAuthButton from "./_components/nav-auth-button";
 import { APP_DOMAIN, AllComponentIds } from "@/constant";
-import { usePathname, useRouter } from "next/navigation";
 import { toScroll, useShadow } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 

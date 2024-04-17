@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
-import NavAuthButtonDropdown from "./nav-auth-button-dropdown";
 import { useUser } from "@/hooks/use-current-user";
 import { deepClone } from "@/lib/deep-clone";
-import { Loader2 } from "@/constant/index";
-import { APP_DOMAIN } from "@/constant";
+import { Loader2, APP_DOMAIN } from "@/constant";
+
+import NavAuthButtonDropdown from "./nav-auth-button-dropdown";
 
 const NavAuthButton = () => {
   const { isError, userData, isLoading } = useUser();

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Toaster } from 'sonner';
+import { Toaster } from "sonner";
+import { ViewTransitions } from "next-view-transitions";
 
 import "./globals.css";
 import SidebarProvider from "@/provider/sidebar-provider";
@@ -33,12 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-        <AuthProvider>{children}</AuthProvider>
-        <SidebarProvider />
-        <Toaster/>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body className={poppins.className}>
+          <AuthProvider>{children}</AuthProvider>
+          <SidebarProvider />
+          <Toaster />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
