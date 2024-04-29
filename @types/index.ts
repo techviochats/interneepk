@@ -14,14 +14,24 @@ export type userDataType = {
   email_verification: boolean;
   email: string;
 };
+type userDbDataType = {
+  user_id: string;
+  full_name: string;
+  user_image: string | null;
+  email_verification: boolean;
+  email: string;
+  is_admin: boolean;
+  [key: string]: any;
+};
 export interface userState {
   userData: Object;
   isLoading: boolean;
   isError: boolean;
   isAdmin: boolean;
-  userDbData: Object;
+  userDbData: Partial<userDbDataType>;
   addData: () => void;
   logOut: () => void;
+  updateDbData: () => void;
 }
 
 export interface breadCrumbsTypes {

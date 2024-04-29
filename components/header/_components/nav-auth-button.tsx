@@ -9,7 +9,7 @@ import { Loader2, APP_DOMAIN } from "@/constant";
 import NavAuthButtonDropdown from "./nav-auth-button-dropdown";
 
 const NavAuthButton = () => {
-  const { isError, userData, isLoading } = useUser();
+  const { isError, userData, isLoading} = useUser();
   const data = deepClone(userData);
 
   if (isLoading) {

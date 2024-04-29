@@ -9,6 +9,9 @@ const nextConfig = {
     );
     return config;
   },
+  images: {
+    domains: ["cloud.appwrite.io"],
+  },
 };
 
 export default nextConfig;

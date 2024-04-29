@@ -14,10 +14,11 @@ import { useUser } from "@/hooks/use-current-user";
 import { deepClone } from "@/lib/deep-clone";
 
 import { LogOut, ProfileIcon, Settings, ShieldCheck } from "@/constant";
+import Image from "next/image";
 const NavAuthButtonDropdown = () => {
   const [isOpen, setOpen] = React.useState<boolean>(false);
   const [loadingLogout, setLoadingLogout] = React.useState<boolean>(false);
-  const { logOut, userData, isAdmin } = useUser();
+  const { logOut, userData, isAdmin, userDbData } = useUser();
 
   const user = deepClone(userData);
 
@@ -30,9 +31,18 @@ const NavAuthButtonDropdown = () => {
         <Button
           variant={"ghost"}
           size={"icon"}
-          className="p-0 rounded-full focus-visible:ring-0 focus-visible:bg-none focus-visible:ring-offset-0"
+          className="p-0 rounded-full focus-visible:ring-0 focus-visible:bg-none focus-visible:ring-offset-0 relative w-8 h-8"
         >
-          <ProfileIcon size={30} className="text-internee-theme" />
+          {userDbData?.user_image ? (
+            <Image
+              src={userDbData?.user_image}
+              alt="profile"
+              fill
+              className="rounded-full w-8 h-8 object-cover"
+            />
+          ) : (
+            <ProfileIcon size={30} className="text-internee-theme" />
+          )}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

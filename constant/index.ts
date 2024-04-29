@@ -55,6 +55,7 @@ import {
   Trash2,
   Plus,
   ShieldAlert,
+  X as Cut,
 } from "lucide-react";
 export {
   CgProfile as ProfileIcon,
@@ -74,4 +75,5 @@ export {
   Trash2,
   Plus,
   ShieldAlert,
+  Cut,
 };

@@ -39,7 +39,7 @@ export default function RootLayout({
         <body className={poppins.className}>
           <AuthProvider>{children}</AuthProvider>
           <SidebarProvider />
-          <Toaster />
+          <Toaster position="top-center" />
         </body>
       </html>
     </ViewTransitions>

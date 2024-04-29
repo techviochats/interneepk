@@ -1,0 +1,46 @@
+
+  // const acceptedFileItems = acceptedFiles.map((file) => {
+  //   let url = URL.createObjectURL(file);
+  //   return (
+  //     <>
+  //       <li key={file.name}>
+  //         {/* @ts-ignore */}
+  //         {file.path}
+  //         {file.name} - {file.size} bytes
+  //       </li>
+  //       <img src={url} alt="" />
+  //     </>
+  //   );
+  // });
+
+  // const fileRejectionItems = fileRejections.map(({ file, errors }: any) => (
+  //   <li key={file.path}>
+  //     {file.path} - {file.size} bytes
+  //     <ul>
+  //       {errors.map((e: any) => (
+  //         <li key={e.code}>{e.message}</li>
+  //       ))}
+  //     </ul>
+  //   </li>
+  // ));
+
+      {/* <section className="container">
+      <div {...getRootProps({ className: "dropzone" })}>
+        <input
+          {...getInputProps({
+            onChange: (val) => {
+              console.log("hello",val.target);
+            },
+
+          })}
+        />
+        <p>Drag 'n' drop some files here, or click to select files</p>
+        <em>(Only *.jpeg and *.png images will be accepted)</em>
+      </div>
+      <aside>
+        <h4>Accepted files</h4>
+        <ul>{acceptedFileItems}</ul>
+        <h4>Rejected files</h4>
+        <ul>{fileRejectionItems}</ul>
+      </aside>
+    </section> */}
