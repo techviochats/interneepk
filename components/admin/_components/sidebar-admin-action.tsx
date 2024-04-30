@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { Link } from "next-view-transitions";
 
 import { cn } from "@/lib/utils";
@@ -10,6 +10,7 @@ import { BlogIcon, InternshipIcon, UserIcon } from "@/constant";
 
 const SidebarAdminAction = ({ userId }: { userId: string }) => {
   const pathName = usePathname();
+  const params = useParams();
   const actions = [
     {
       id: "1",
@@ -22,7 +23,7 @@ const SidebarAdminAction = ({ userId }: { userId: string }) => {
       id: "2",
       label: "Blogs",
       href: `/admin/${userId}/blogs`,
-      isActive: pathName === `/admin/${userId}/blogs`,
+      isActive: pathName === `/admin/${userId}/blogs` || pathName === `/admin/${userId}/blogs/${params?.blogId}`,
       Icon: BlogIcon,
     },
     {

@@ -10,6 +10,8 @@ export const APP_WRITE_DATABASE_ID =
 
 export const APP_WRITE_COLLECTION_ID =
   process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
+export const APP_WRITE_BLOG_COLLECTION_ID =
+  process.env.NEXT_PUBLIC_APPWRITE_BLOG_COLLECTION_ID;
 
 export const APP_WRITE_BUCKET_ID = process.env.NEXT_PUBLIC_BUCKET_ID;
 
@@ -36,8 +38,17 @@ export const AllComponentIds = {
   hero: "HeroBanner",
 };
 
-import { CgProfile } from "react-icons/cg";
+import { CgProfile, CgFormatItalic } from "react-icons/cg";
 import { FaGithub, FaEllipsisH } from "react-icons/fa";
+import {
+  CiLink,
+  CiTextAlignLeft,
+  CiTextAlignRight,
+  CiYoutube,
+  CiTextAlignCenter,
+  CiTextAlignJustify,
+} from "react-icons/ci";
+import { FaHighlighter } from "react-icons/fa6";
 
 import { FcGoogle } from "react-icons/fc";
 
@@ -56,6 +67,12 @@ import {
   Plus,
   ShieldAlert,
   X as Cut,
+  Bold,
+  Code,
+  Heading1,
+  Heading2,
+  Heading3,
+  List,
 } from "lucide-react";
 export {
   CgProfile as ProfileIcon,
@@ -70,8 +87,22 @@ export {
   Blocks as BlogIcon,
   FolderKanban as InternshipIcon,
   CircleEllipsis,
+  Bold,
+  Code,
+  Heading1,
+  Heading2,
+  Heading3,
+  List,
   FaEllipsisH,
   Lock,
+  FaHighlighter as Highlight,
+  CgFormatItalic as Italic,
+  CiLink as Link,
+  CiTextAlignLeft as Left,
+  CiTextAlignRight as Right,
+  CiTextAlignCenter as Center,
+  CiTextAlignJustify as Justify,
+  CiYoutube as Youtube,
   Trash2,
   Plus,
   ShieldAlert,

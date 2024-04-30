@@ -63,13 +63,12 @@ const SettingForm = () => {
       if (!parseSchema.success) {
         return toast.error(parseSchema.error.message);
       }
-      if (!(userData as any)?.$id || !(userDbData as any)?.$id) {
-        return router.push("/");
+      if (!(userDbData as any)?.$id) {
+        return toast.error("Session has been expired. Please login again");
       }
       let url = { url: "", error: "" };
 
       if (file) {
-        console.log(file);
         id = toast.loading("Image Uploading...");
         url = await setPic((userDbData as any)?.$id, file);
         toast.dismiss(id);
@@ -81,9 +80,13 @@ const SettingForm = () => {
       if (!url.url) {
         return toast.error(url.error);
       }
-
+      if (!file && values.name.trim() === userDbData.full_name) {
+        setFile(null);
+        updateDbData();
+        router.refresh();
+        return toast.warning("Name can't be same as previous name");
+      }
       id = toast.loading("Updating User Info...");
-
       await addInDbInfo(values, url.url, (userDbData as any)?.$id);
       updateDbData();
       setFile(null);
