@@ -23,14 +23,18 @@ const SidebarAdminAction = ({ userId }: { userId: string }) => {
       id: "2",
       label: "Blogs",
       href: `/admin/${userId}/blogs`,
-      isActive: pathName === `/admin/${userId}/blogs` || pathName === `/admin/${userId}/blogs/${params?.blogId}`,
+      isActive:
+        pathName === `/admin/${userId}/blogs` ||
+        pathName === `/admin/${userId}/blogs/${params?.blogId}`,
       Icon: BlogIcon,
     },
     {
       id: "3",
       label: "Add Internships",
       href: `/admin/${userId}/internship`,
-      isActive: pathName === `/admin/${userId}/internship`,
+      isActive:
+        pathName === `/admin/${userId}/internship` ||
+        pathName === `/admin/${userId}/internship/${params?.internshipId}`,
       Icon: InternshipIcon,
     },
   ];
