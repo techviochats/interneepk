@@ -13,7 +13,6 @@ export const getRegister = async (values: z.infer<typeof RegisterSchema>) => {
     return { error: "Invalid Input" };
   }
   try {
-  
     await account.create(
       ID.unique(),
       values.email,
@@ -26,7 +25,7 @@ export const getRegister = async (values: z.infer<typeof RegisterSchema>) => {
     );
 
     await account.createVerification(VERIFIED_USER!);
-    console.log("Verification Email Sent");
+
     await account.deleteSession(session.$id);
     return { data: "Verification Email Sent" };
   } catch (error: any) {
@@ -80,6 +79,7 @@ export const getVerifiedEmail = async (
   date: Date
 ) => {
   try {
+    console.log(date.getTime(), new Date().getTime());
     const isExpire = date.getTime() < new Date().getTime();
     if (isExpire) {
       return { error: "Token is expired" };

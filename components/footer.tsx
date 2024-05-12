@@ -15,18 +15,22 @@ import {
 import { ALLSOCIALLINKS, APP_DOMAIN, AllComponentIds } from "@/constant";
 import { toScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathName = usePathname();
   return (
     <footer className="mt-32 z-10 sm:h-48 bg-internee-absoluteTheme px-4 sm:px-44 py-5 relative">
-      <div
-        className={cn(
-          "absolute -top-6 right-5 h-12 w-12 rounded-full bg-internee-theme flex items-center justify-center cursor-pointer transition-all hover:bg-internee-theme/80 hover:-top-7 shadow-2xl"
-        )}
-        onClick={() => toScroll(AllComponentIds["hero"])}
-      >
-        <ArrowUp className="w-6 h-6 text-white" />
-      </div>
+      {pathName === "/" && (
+        <div
+          className={cn(
+            "absolute -top-6 right-5 h-12 w-12 rounded-full bg-internee-theme flex items-center justify-center cursor-pointer transition-all hover:bg-internee-theme/80 hover:-top-7 shadow-2xl"
+          )}
+          onClick={() => toScroll(AllComponentIds["hero"])}
+        >
+          <ArrowUp className="w-6 h-6 text-white" />
+        </div>
+      )}
       <div className="flex justify-between flex-col sm:flex-row gap-y-8 sm:gap-y-0">
         <Link className="px-2" href={"/"}>
           <Image

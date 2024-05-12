@@ -76,6 +76,7 @@ const Tiptap = () => {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
+      
       <EditorContent editor={editor} className="focus:outline-none" />
       <div className="flex gap-x-2 text-muted-foreground text-sm items-center">
         <Switch

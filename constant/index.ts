@@ -12,6 +12,10 @@ export const APP_WRITE_COLLECTION_ID =
   process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
 export const APP_WRITE_BLOG_COLLECTION_ID =
   process.env.NEXT_PUBLIC_APPWRITE_BLOG_COLLECTION_ID;
+export const APP_WRITE_INTERNSHIP_COLLECTION_ID =
+  process.env.NEXT_PUBLIC_APPWRITE_INTERNEE_COLLECTION_ID;
+export const APP_WRITE_CATEGORY_COLLECTION_ID =
+  process.env.NEXT_PUBLIC_APPWRITE_CATEGORY_COLLECTION_ID;
 
 export const APP_WRITE_BUCKET_ID = process.env.NEXT_PUBLIC_BUCKET_ID;
 
@@ -73,6 +77,7 @@ import {
   Heading2,
   Heading3,
   List,
+  SquarePen,
 } from "lucide-react";
 export {
   CgProfile as ProfileIcon,
@@ -88,6 +93,7 @@ export {
   FolderKanban as InternshipIcon,
   CircleEllipsis,
   Bold,
+  
   Code,
   Heading1,
   Heading2,
@@ -107,4 +113,5 @@ export {
   Plus,
   ShieldAlert,
   Cut,
+  SquarePen,
 };

@@ -6,6 +6,7 @@ import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import SidebarProvider from "@/provider/sidebar-provider";
 import AuthProvider from "@/provider/auth-provider";
+import ModalProvider from "@/provider/modal-provider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
         <body className={poppins.className}>
           <AuthProvider>{children}</AuthProvider>
           <SidebarProvider />
+          <ModalProvider />
           <Toaster position="top-center" />
         </body>
       </html>

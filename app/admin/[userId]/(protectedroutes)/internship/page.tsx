@@ -1,10 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus } from "@/constant";
 import InternshipSelect from "./_components/intern-select";
 import { Link } from "next-view-transitions";
+import Internship from "./_components/Internship";
+import Loading from "@/components/loading";
 
-const InternshipPage = ({ params }: { params: { userId: string } }) => {
+const InternshipPage = ({
+  params,
+  searchParams,
+}: {
+  params: { userId: string };
+  searchParams: { category: string };
+}) => {
   return (
     <div className="px-6 py-8 space-y-5 w-full h-full flex flex-col">
       <h1 className="capitalize text-3xl font-semibold text-internee-text">
@@ -20,6 +28,9 @@ const InternshipPage = ({ params }: { params: { userId: string } }) => {
         </Link>
         <InternshipSelect />
       </div>
+      <Suspense fallback={<Loading />}>
+        <Internship searchParams={searchParams} />
+      </Suspense>
     </div>
   );
 };

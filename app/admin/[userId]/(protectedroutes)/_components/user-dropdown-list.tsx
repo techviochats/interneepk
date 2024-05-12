@@ -79,18 +79,21 @@ const UserDropdownList = ({ isAdmin, id }: UserDropdownListProps) => {
             </div>
           </DropdownMenuItem>
         )}
-        <DropdownMenuItem className="p-0">
+
+        {/* THIS IS TODO LIST */}
+        {/* <DropdownMenuItem className="p-0">
           <div className="w-full py-3 transition-all rounded-md px-2 cursor-pointer hover:bg-internee-theme hover:text-internee-absoluteTheme flex">
             <Lock className="w-4 h-4 mr-1 text-destructive mb-px" />
             Block
           </div>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="p-0">
+        </DropdownMenuItem> */}
+        {/* THIS IS TODO LIST */}
+        {/* <DropdownMenuItem className="p-0">
           <div className="w-full py-3 transition-all rounded-md px-2 cursor-pointer hover:bg-internee-theme hover:text-internee-absoluteTheme flex">
             <Trash2 className="w-4 h-4 mr-1 text-destructive mb-px" />
             Delete
           </div>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -1,4 +1,4 @@
-import { Account, Client, Databases, Query, ID, Storage } from "appwrite";
+import { Account, Client, Databases, Query, ID, Storage, QueryTypesList} from "appwrite";
 import { APP_WRITE_PROJECT_ID, APP_WRITE_URL } from "@/constant";
 
 const client = new Client()

@@ -1,13 +1,13 @@
 import { create } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 
-interface ModalState {
+interface SidebarState {
   isOpen: boolean;
   open: () => void;
   close: () => void;
 }
 
-const sidebarStore = create<ModalState>((set) => ({
+const sidebarStore = create<SidebarState>((set) => ({
   isOpen: false,
   open: () => set({ isOpen: true }),
   close: () => set({ isOpen: false }),

@@ -9,7 +9,6 @@ import { FormError, FormSuccess } from "@/components/form-message";
 import { Button } from "@/components/ui/button";
 import { getVerifiedEmail } from "@/lib/app-write-auth";
 
-
 const VerificationCard = () => {
   const searchParams = useSearchParams();
   const [errorMessage, setErrorMessage] = React.useState<string>("");
@@ -24,8 +23,10 @@ const VerificationCard = () => {
     if (!token && !userId) {
       return setErrorMessage("Token is required");
     }
+
     const date = new Date(expires as string);
     const isExpire = date.getTime() < new Date().getTime();
+
     if (isExpire) {
       setErrorMessage("Token is expired");
       return;

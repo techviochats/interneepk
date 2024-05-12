@@ -15,7 +15,7 @@ const ProtectedLayout = ({ children, params }: ExtendChildrenProps) => {
     <div className="bg-white h-full flex">
       <ProtectedPageProvider userId={params?.userId}>
         <SiderbarAdmin userId={params.userId} />
-        <main className="sm:pl-72 w-full flex-grow ">{children}</main>
+        <main className="sm:pl-72 w-full flex-grow">{children}</main>
       </ProtectedPageProvider>
     </div>
   );
