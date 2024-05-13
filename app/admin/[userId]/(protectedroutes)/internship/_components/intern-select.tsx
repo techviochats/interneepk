@@ -17,6 +17,7 @@ const InternshipSelect = () => {
 
   const router = useRouter();
   const params = useParams();
+  
   const [categories, setCategories] = React.useState([]);
 
   React.useEffect(() => {
@@ -41,7 +42,7 @@ const InternshipSelect = () => {
         <SelectValue placeholder="All Categories" />
       </SelectTrigger>
       <SelectContent>
-        {categories.map((category: any) => (
+        {categories?.map((category: any) => (
           <SelectItem
             key={category?.$id}
             value={category.category_name}
