@@ -18,6 +18,7 @@ const Blog = ({ userId }: BlogProps) => {
         <Plus className="w-5 h-5" /> Add Blogs
       </Link>
       {/* TODO ADD CARD */}
+      
     </div>
   );
 };

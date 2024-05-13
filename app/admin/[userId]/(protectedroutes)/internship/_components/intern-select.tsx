@@ -43,6 +43,7 @@ const InternshipSelect = () => {
       <SelectContent>
         {categories.map((category: any) => (
           <SelectItem
+            key={category?.$id}
             value={category.category_name}
             className="justify-start cursor-pointer"
           >

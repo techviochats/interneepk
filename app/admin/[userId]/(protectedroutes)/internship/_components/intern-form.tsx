@@ -149,7 +149,7 @@ const InternForm = ({ internshipId }: InternFormProps) => {
                   </FormControl>
                   <SelectContent className="transition-all ">
                     {categories.map((category: any) => (
-                      <div className="flex justify-between gap-x-2 items-center">
+                      <div className="flex justify-between gap-x-2 items-center" key={category?.$id}>
                         <SelectItem
                           value={category?.category_name}
                           className="cursor-pointer"
