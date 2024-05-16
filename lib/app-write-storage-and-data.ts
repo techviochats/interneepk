@@ -15,7 +15,9 @@ import {
   APP_WRITE_DATABASE_ID,
   APP_WRITE_PROJECT_ID,
   APP_WRITE_INTERNSHIP_COLLECTION_ID,
+  APP_WRITE_BLOG_COLLECTION_ID,
 } from "@/constant";
+import { BlogTypes } from "@/@types";
 
 export const createDoc = () => {};
 
@@ -245,5 +247,55 @@ export const deleteInternshipInDb = async (internshipId: string) => {
   } catch (error) {
     console.log(error);
     return { error: "Something went wrong" };
+  }
+};
+
+/**
+ * add blog in db
+ * @param value
+ * @returns {Promise<error|message>}
+ */
+export const addBlogInDb = async (value: BlogTypes) => {
+  if (
+    !value.blogs ||
+    !value.description ||
+    !value.main_heading ||
+    !value.user_id
+  )
+    return { error: "Please fill all the fields" };
+  try {
+    await database.createDocument(
+      APP_WRITE_DATABASE_ID!,
+      APP_WRITE_BLOG_COLLECTION_ID!,
+      clientId.unique(),
+      value
+    );
+    return { message: "Blog added successfully" };
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong" };
+  }
+};
+
+/**
+ *
+ */
+export const changePublishedInBlogInDb = async (
+  id: string,
+  is_published: boolean
+) => {
+  if (!id) return;
+  try {
+    await database.updateDocument(
+      APP_WRITE_DATABASE_ID!,
+      APP_WRITE_BLOG_COLLECTION_ID!,
+      id,
+      {
+        is_published: is_published,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    return { error: "something went wrong" };
   }
 };

@@ -1,14 +1,19 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import AllBlogs from "./all-blogs";
 import { Plus } from "@/constant";
+import Loading from "@/components/loading";
+import BlogSelect from "./blog-select";
 
 interface BlogProps {
   userId: string;
+  searchParams: {
+    filters: string | boolean;
+  };
 }
 
-const Blog = ({ userId }: BlogProps) => {
+const Blog = ({ userId, searchParams }: BlogProps) => {
   return (
     <div className="flex flex-col gap-y-4">
       <Link
@@ -17,8 +22,12 @@ const Blog = ({ userId }: BlogProps) => {
       >
         <Plus className="w-5 h-5" /> Add Blogs
       </Link>
-      {/* TODO ADD CARD */}
-      
+      <div className="flex items-end flex-col">
+        <BlogSelect />
+      </div>
+      <Suspense fallback={<Loading />}>
+        <AllBlogs searchParams={searchParams} />
+      </Suspense>
     </div>
   );
 };

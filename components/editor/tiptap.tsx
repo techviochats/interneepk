@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { toast } from "sonner";
 import { PropagateLoader } from "react-spinners";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -19,14 +20,22 @@ import ToolBar from "@/components/editor/toolbar";
 import Italic from "@tiptap/extension-italic";
 import Highlight from "@tiptap/extension-highlight";
 
-import "@/app/blogstyles.css";
 import { Input } from "@/components/ui/input";
-import { Button } from "../ui/button";
-import { Switch } from "../ui/switch";
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
+
+import "@/app/blogstyles.css";
+import { cn } from "@/lib/utils";
+import { useUser } from "@/hooks/use-current-user";
+import { addBlogInDb } from "@/lib/app-write-storage-and-data";
+import { BlogTypes } from "@/@types";
 
 const Tiptap = () => {
-  const [editorText, setEditorText] = React.useState<string>();
+  const { userData } = useUser();
+  const [editorText, setEditorText] = React.useState<string>("");
   const [input, setInput] = React.useState<string>("");
+  const [description, setDescription] = React.useState<string>("");
   const [publish, setPublish] = React.useState<boolean>(true);
   const editor = useEditor({
     extensions: [
@@ -56,14 +65,42 @@ const Tiptap = () => {
       blockquote.configure(),
     ],
     onUpdate({ editor }) {
-      console.log(editor.getHTML());
       setEditorText(editor.getHTML());
     },
-
-    content: "",
+    onBeforeCreate(props) {
+      props.editor.destroy();
+    },
+    content: editorText,
     editable: true,
   });
-
+  const onSubmit = async () => {
+    let id;
+    if (!(input.length > 3) || !(description.length > 10) || !editorText) {
+      return toast.error("Please fill all the fields");
+    }
+    let value: BlogTypes = {
+      blogs: editorText,
+      main_heading: input,
+      description: description,
+      published_date: publish ? new Date() : null,
+      is_published: publish,
+      user_id: (userData as any)?.$id,
+    };
+    id = toast.loading("Adding Blog...");
+    const res = await addBlogInDb(value);
+    if (res?.error) {
+      toast.dismiss(id);
+      toast.error(res?.error);
+      return;
+    }
+    toast.dismiss(id);
+    toast.success(res?.message);
+    editor?.commands.clearContent();
+    setInput("");
+    setDescription("");
+    setPublish(true);
+    return;
+  };
   if (!editor) {
     return <TipTapLoader />;
   }
@@ -71,14 +108,51 @@ const Tiptap = () => {
     <div className="flex flex-col gap-y-4 w-full">
       <ToolBar editor={editor} />
       <Input
-        className="bg-[#d4d3d3] focus:outline-internee-theme focus-visible:outline-internee-theme"
+        className={cn(
+          "bg-[#d4d3d3] focus:outline-internee-theme focus-visible:outline-internee-theme",
+          input.length > 500 &&
+            "ring-destructive ring-2 focus:outline-2 focus:outline-red-300 focus-visible:outline-red-300  focus-visible:outline-2",
+          input.length === 599 &&
+            "ring-destructive ring-2 focus:outline-2 focus:outline-destructive focus-visible:outline-destructive  focus-visible:outline-2"
+        )}
         placeholder="Main Heading..."
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => {
+          const newValue = e.target.value;
+          if (newValue.length > 599) {
+            setInput(newValue.slice(0, 599));
+            return;
+          }
+          setInput(newValue);
+        }}
       />
-      
+      <span className="text-xs text-muted-foreground -mt-3 text-end px-1">
+        {input?.length}/600
+      </span>
+      <Textarea
+        placeholder="Small Description that what is this blog about"
+        className={cn(
+          "bg-[#d4d3d3] focus:outline-internee-theme focus-visible:outline-internee-theme",
+          description.length > 900 &&
+            "ring-destructive ring-2 focus:outline-2 focus:outline-red-300 focus-visible:outline-red-300  focus-visible:outline-2",
+          description.length === 999 &&
+            "ring-destructive ring-2 focus:outline-2 focus:outline-destructive focus-visible:outline-destructive  focus-visible:outline-2"
+        )}
+        value={description}
+        onChange={(e) => {
+          const newValue = e.target.value;
+          if (newValue.length > 999) {
+            setDescription(newValue.slice(0, 999));
+            return;
+          }
+          setDescription(newValue);
+        }}
+      />
+      <span className="text-xs text-muted-foreground -mt-3 text-end px-1">
+        {description?.length}/1000
+      </span>
       <EditorContent editor={editor} className="focus:outline-none" />
-      <div className="flex gap-x-2 text-muted-foreground text-sm items-center">
+      <div className="flex gap-x-2 text-muted-foreground text-sm items-center -mt-2">
         <Switch
           checked={publish}
           className="data-[state=checked]:bg-internee-theme"
@@ -86,7 +160,12 @@ const Tiptap = () => {
         />
         {publish ? "Published" : "Draft"}
       </div>
-      <Button className="bg-internee-theme mb-4">Publish</Button>
+      <Button
+        className="bg-internee-theme mb-4 hover:bg-internee-theme/90"
+        onClick={onSubmit}
+      >
+        Publish
+      </Button>
     </div>
   );
 };

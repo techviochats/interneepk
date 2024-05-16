@@ -16,8 +16,7 @@ const InternshipSelect = () => {
   const { rerender } = useDialogHook();
 
   const router = useRouter();
-  const params = useParams();
-  
+  const params = useParams();  
   const [categories, setCategories] = React.useState([]);
 
   React.useEffect(() => {

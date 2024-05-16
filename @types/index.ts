@@ -70,3 +70,12 @@ export type userType = {
   image: string;
   badge: string;
 }[];
+
+export type BlogTypes = {
+  blogs: string;
+  main_heading: string;
+  description: string;
+  published_date: Date | null;
+  is_published: boolean;
+  user_id: string;
+};
