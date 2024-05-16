@@ -19,7 +19,7 @@ const Internship = async ({
   return (
     <div className="flex flex-col gap-y-4">
       <div className="grid grid-cols-3 gap-y-6 gap-x-4">
-        {data.map((internship: any) => (
+        {data?.map((internship: any) => (
           <InternshipList
             key={internship.$id}
             category={internship.internship_category}

@@ -62,8 +62,8 @@ const BlogSelect = () => {
       <SelectContent>
         <SelectItem value="All">All Blogs</SelectItem>
         <SelectItem value="userId">Only me</SelectItem>
-        <SelectItem value="published">published </SelectItem>
-        <SelectItem value="not_published">not published </SelectItem>
+        <SelectItem value="published">Published </SelectItem>
+        <SelectItem value="not_published">Not published </SelectItem>
       </SelectContent>
     </Select>
   );

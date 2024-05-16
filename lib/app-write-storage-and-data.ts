@@ -18,6 +18,7 @@ import {
   APP_WRITE_BLOG_COLLECTION_ID,
 } from "@/constant";
 import { BlogTypes } from "@/@types";
+import { AppwriteException } from "appwrite";
 
 export const createDoc = () => {};
 
@@ -278,7 +279,10 @@ export const addBlogInDb = async (value: BlogTypes) => {
 };
 
 /**
- *
+ * change the publish blogs to set unpublished or published
+ * @param id
+ * @param is_published
+ * @returns {Promise<error|message>}
  */
 export const changePublishedInBlogInDb = async (
   id: string,
@@ -292,10 +296,92 @@ export const changePublishedInBlogInDb = async (
       id,
       {
         is_published: is_published,
+        published_date: is_published ? new Date() : null,
       }
     );
   } catch (error) {
     console.log(error);
     return { error: "something went wrong" };
+  }
+};
+
+/**
+ * get single blog from database
+ * @param blogId
+ * @returns
+ */
+
+export const getSingleBlogFromDb = async (blogId: string) => {
+  if (!blogId || blogId === "new") return;
+  try {
+    const res = await database.getDocument(
+      APP_WRITE_DATABASE_ID!,
+      APP_WRITE_BLOG_COLLECTION_ID!,
+      blogId
+    );
+    return { data: res };
+  } catch (error) {
+    console.log(error);
+    return {
+      error:
+        (error as AppwriteException).code === 404
+          ? "Blog not found 404"
+          : "Something went wrong 500",
+    };
+  }
+};
+
+/**
+ * update blog in database
+ * @param value
+ * @param blogId
+ * @returns {Promise<error|message>}
+ */
+
+export const updateBlogsInDb = async (blogId: string, value: BlogTypes) => {
+  try {
+    if (!blogId) return { error: "Blog Id is not existed" };
+
+    await database.updateDocument(
+      APP_WRITE_DATABASE_ID!,
+      APP_WRITE_BLOG_COLLECTION_ID!,
+      blogId,
+      {
+        main_heading: value.main_heading,
+        description: value.description,
+        blogs: value.blogs,
+        is_published: value.is_published,
+      }
+    );
+    return { message: "Blog updated successfully" };
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong" };
+  }
+};
+
+/**
+ * delete blog from db
+ * @param blogId
+ * @returns {Promise<error|message>}
+ */
+export const deleteBlogInDb = async (blogId: string) => {
+  try {
+    if (!blogId) return { error: "Blog Id is not existed" };
+
+    await database.deleteDocument(
+      APP_WRITE_DATABASE_ID!,
+      APP_WRITE_BLOG_COLLECTION_ID!,
+      blogId
+    );
+    return { message: "Blog deleted successfully" };
+  } catch (error) {
+    console.log(error);
+    return {
+      error:
+        (error as AppwriteException).code === 404
+          ? "Internship not found"
+          : "Something went wrong",
+    };
   }
 };

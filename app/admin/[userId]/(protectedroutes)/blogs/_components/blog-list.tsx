@@ -16,7 +16,7 @@ const BlogList = ({
 }: BlogList) => {
   return (
     <div
-      className="bg-white shadow-lg rounded-lg hover:shadow-2xl transition-all duration-300 px-2 py-3 flex flex-col justify-between gap-y-2"
+      className="bg-white shadow-lg rounded-lg hover:shadow-2xl transition-all duration-300 px-3 py-3 flex flex-col justify-between gap-y-2 ring-muted-foreground/10 ring-1"
       key={$id}
     >
       <div className="flex flex-col gap-y-4">

@@ -38,8 +38,14 @@ const AllBlogs = async ({
           main_heading={(blog as any)?.main_heading}
           published_date={(blog as any)?.published_date}
           is_published={(blog as any)?.is_published}
+          
         />
       ))}
+      {blogs?.data.length === 0 && (
+        <div className="flex justify-center items-center w-full col-span-1  sm:col-span-2 md:col-span-2 lg:col-span-3 text-muted-foreground text-sm">
+          No Blogs Available
+        </div>
+      )}
     </div>
   );
 };
