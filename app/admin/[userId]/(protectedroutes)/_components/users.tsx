@@ -8,7 +8,7 @@ const User = async ({
 }: {
   searchParams: { lastId?: string; page?: string; startId?: string };
 }) => {
-  const docInPage: number = 1;
+  const docInPage: number = 10;
   const { users, total } = await getAllUserInServer(
     searchParams.lastId,
     docInPage,

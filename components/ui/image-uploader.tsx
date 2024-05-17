@@ -24,7 +24,6 @@ const ImageUploader = ({ onChange, value }: ImageUploaderProps) => {
     maxFiles: 1,
     onDrop(acceptedFiles, fileRejections, event) {
       const url = URL.createObjectURL(acceptedFiles[0]);
-
       onChange(acceptedFiles[0], url);
       if (fileRejections.length > 0) {
         console.log(fileRejections);

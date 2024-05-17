@@ -81,7 +81,7 @@ const sidebarLink = [
   {
     id: 5,
     label: "Internee's Login",
-    href: `${APP_DOMAIN}/coming-soon.html`,
+    href: `/sign-in`,
     icon: LogIn,
   },
 ];

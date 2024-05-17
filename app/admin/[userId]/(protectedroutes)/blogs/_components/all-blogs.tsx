@@ -1,6 +1,7 @@
-import { getAllBlogs } from "@/actions/get-all-blogs";
-import { Switch } from "@/components/ui/switch";
 import React from "react";
+
+import { getAllBlogs } from "@/actions/get-all-blogs";
+
 import BlogCardAction from "./blog-card-action";
 import BlogList from "./blog-list";
 

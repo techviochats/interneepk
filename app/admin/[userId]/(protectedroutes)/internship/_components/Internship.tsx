@@ -1,6 +1,10 @@
 import React from "react";
-import InternshipList from "./internship-list";
+
 import { getAllInternship } from "@/actions/get-all-internship";
+
+import Error from "@/components/error";
+
+import InternshipList from "./internship-list";
 
 const Internship = async ({
   searchParams,
@@ -9,11 +13,7 @@ const Internship = async ({
 }) => {
   const { data, error, total } = await getAllInternship(searchParams.category);
   if (error) {
-    return (
-      <div className="text-destructive font-bold text-[50px] h-full w-full flex items-center justify-center">
-        Oops! Error
-      </div>
-    );
+    return <Error href="/" error="Something went wrong 500" />;
   }
 
   return (
@@ -27,6 +27,11 @@ const Internship = async ({
             name={internship.internship_name}
           />
         ))}
+        {data.length === 0 && (
+          <div className="flex justify-center items-center w-full col-span-1  sm:col-span-2 md:col-span-2 lg:col-span-3 text-muted-foreground text-sm">
+            No Internships Available
+          </div>
+        )}
       </div>
     </div>
   );

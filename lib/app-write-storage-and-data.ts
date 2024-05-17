@@ -86,9 +86,13 @@ export const addInDbInfo = async (
  * @returns
  */
 
-export const addCategoryInDb = async (categoryName: string) => {
+export const addCategoryInDb = async (
+  categoryName: string,
+  imageUrl: string
+) => {
   try {
     if (!categoryName) return;
+    if (!imageUrl) return;
     const data = await database.listDocuments(
       APP_WRITE_DATABASE_ID!,
       APP_WRITE_CATEGORY_COLLECTION_ID!,
@@ -101,6 +105,7 @@ export const addCategoryInDb = async (categoryName: string) => {
       clientId.unique(),
       {
         category_name: categoryName,
+        category_image: imageUrl,
       }
     );
     return { message: "Category added successfully" };

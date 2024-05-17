@@ -76,14 +76,15 @@ export const getOAuthLogin = async (provider: oAuthType) => {
 export const getVerifiedEmail = async (
   userId: string,
   secret: string,
-  date: Date
+  date?: Date
 ) => {
   try {
-    console.log(date.getTime(), new Date().getTime());
-    const isExpire = date.getTime() < new Date().getTime();
-    if (isExpire) {
-      return { error: "Token is expired" };
-    }
+    // console.log(date.getTime(), new Date().getTime(), "hello");
+    // const isExpire = date.getTime() < new Date().getTime();
+    // console.log(isExpire);
+    // if (isExpire) {
+    //   return { error: "Token is expired" };
+    // }
     const promise = await account.updateVerification(userId, secret);
     return { data: promise };
   } catch (error: any) {

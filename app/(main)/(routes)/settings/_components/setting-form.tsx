@@ -44,14 +44,14 @@ const SettingForm = () => {
   const form = useForm<z.infer<typeof SettingSchema>>({
     resolver: zodResolver(SettingSchema),
     defaultValues: {
-      email: userDbData?.email || "",
+      email: (userData as any)?.email || "",
       name: userDbData?.full_name || "",
       user_image: userDbData.user_image || "",
     },
   });
 
   useEffect(() => {
-    form.setValue("email", userDbData?.email || "");
+    form.setValue("email", (userData as any)?.email || "");
     form.setValue("name", userDbData?.full_name || "");
     form.setValue("user_image", userDbData.user_image || "");
   }, [userDbData, form]);

@@ -14,12 +14,18 @@ import {
 import { Input } from "@/components/ui/input";
 import { useDialogHook } from "@/hooks/use-dialogbox";
 import { toast } from "sonner";
-import { addCategoryInDb } from "@/lib/app-write-storage-and-data";
+import { addCategoryInDb, setPic } from "@/lib/app-write-storage-and-data";
 import { useParams, useRouter } from "next/navigation";
+import ImageUploader from "./image-uploader";
+import { useUser } from "@/hooks/use-current-user";
 
 export function DialogInternshipModal() {
   const { close, isOpen, modalTypes, rerenderFunc } = useDialogHook();
+  const { userData } = useUser();
   const [value, setInputValue] = React.useState<string>("");
+  const [file, setFile] = React.useState<File | null>();
+  const [imageUrl, setImageUrl] = React.useState<string>("");
+
   const router = useRouter();
   const param = useParams();
   const addCategory = async () => {
@@ -28,8 +34,20 @@ export function DialogInternshipModal() {
       toast.warning("Please enter a category field");
       return;
     }
+    if (!imageUrl || !file) {
+      toast.warning("Please enter an image for that field");
+      return;
+    }
+    id = toast.loading("Uploading Image...");
+    const url = await setPic((userData as any)?.$id, file);
+    if (!url.url) {
+      toast.dismiss(id);
+      toast.error("Some Error Occured while uploading image");
+      return;
+    }
+    toast.dismiss(id);
     id = toast.loading("Adding Category...");
-    const res = await addCategoryInDb(value);
+    const res = await addCategoryInDb(value, url.url);
     if (res?.error) {
       toast.dismiss(id);
       toast.error(res?.error);
@@ -64,7 +82,7 @@ export function DialogInternshipModal() {
               <em>(Be sure to not to use same categories)</em>
             </DialogDescription>
           </DialogHeader>
-          <div className="flex items-center space-x-2 w-full gap-y-2">
+          <div className="flex items-center space-x-2 w-full gap-y-2 flex-col">
             <div className="grid w-full flex-1 gap-2">
               <Input
                 className="focus-visible:outline-internee-theme focus:outline-internee-theme"
@@ -72,10 +90,17 @@ export function DialogInternshipModal() {
                 onChange={(e) => setInputValue(e.target.value)}
               />
             </div>
+            <ImageUploader
+              onChange={(file, url) => {
+                setFile(file);
+                setImageUrl(url);
+              }}
+              value={imageUrl}
+            />
             <Button
               type="submit"
               size="lg"
-              className="px-3 bg-internee-theme hover:bg-internee-theme/90"
+              className="px-3 bg-internee-theme hover:bg-internee-theme/90 w-full"
               onClick={addCategory}
             >
               <span className="">Add Category</span>

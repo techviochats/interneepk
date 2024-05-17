@@ -37,6 +37,7 @@ const UserPagination = ({
           setPage(pageVal - 1);
           const uri = `?startId=${startId}&page=${pageVal - 1}`;
           let encoded = encodeURIComponent(uri);
+
           router.push(`/admin/${params?.userId}?${encoded}`);
         }}
       >
@@ -51,6 +52,7 @@ const UserPagination = ({
           if (pageVal === totalpage) return;
           const uri = `lastId=${lastId}&page=${pageVal + 1}`;
           let encoded = encodeURIComponent(uri);
+
           router.push(`/admin/${params?.userId}?${encoded}`);
         }}
         className="disabled:cursor-none"

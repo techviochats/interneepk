@@ -149,7 +149,10 @@ const InternForm = ({ internshipId }: InternFormProps) => {
                   </FormControl>
                   <SelectContent className="transition-all ">
                     {categories.map((category: any) => (
-                      <div className="flex justify-between gap-x-2 items-center" key={category?.$id}>
+                      <div
+                        className="flex justify-between gap-x-2 items-center"
+                        key={category?.$id}
+                      >
                         <SelectItem
                           value={category?.category_name}
                           className="cursor-pointer"
@@ -169,7 +172,11 @@ const InternForm = ({ internshipId }: InternFormProps) => {
                         </div>
                       </div>
                     ))}
-
+                    {categories?.length === 0 && (
+                      <div className="flex justify-center items-center w-full col-span-1  sm:col-span-2 md:col-span-2 lg:col-span-3 text-muted-foreground text-sm">
+                        No Categories Available
+                      </div>
+                    )}
                     <div
                       className="flex items-center cursor-pointer justify-center text-muted-foreground py-3 hover:bg-internee-theme/90 hove  r:text-internee-absoluteTheme transition-all rounded-md w-full bg-internee-theme text-white mr-2 gap-x-1 mt-2"
                       onClick={openAddCategoryModal}
@@ -215,7 +222,11 @@ const InternForm = ({ internshipId }: InternFormProps) => {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={loading} className="bg-internee-theme hover:bg-internee-theme/90"> 
+          <Button
+            type="submit"
+            disabled={loading}
+            className="bg-internee-theme hover:bg-internee-theme/90"
+          >
             Submit
           </Button>
         </form>

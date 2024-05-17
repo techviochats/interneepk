@@ -16,22 +16,22 @@ const VerificationCard = () => {
 
   const token = searchParams.get("secret");
   const userId = searchParams.get("userId");
-  const expires = searchParams.get("expire");
+  // const expires = searchParams.get("expire");
 
   const onSubmit = React.useCallback(() => {
     if (successMessage && errorMessage) return null;
     if (!token && !userId) {
       return setErrorMessage("Token is required");
     }
+    // console.log(expires);
+    // const date = new Date(expires as string);
+    // const isExpire = date.getTime() < new Date().getTime();
 
-    const date = new Date(expires as string);
-    const isExpire = date.getTime() < new Date().getTime();
-
-    if (isExpire) {
-      setErrorMessage("Token is expired");
-      return;
-    }
-    getVerifiedEmail(userId as string, token as string, date)
+    // if (isExpire) {
+    // setErrorMessage("Token is expired");
+    // return;
+    // }
+    getVerifiedEmail(userId as string, token as string) //, date)
       .then((res) => {
         if (res.error) return setErrorMessage(res.error);
         setSuccessMessage("Email Verified");

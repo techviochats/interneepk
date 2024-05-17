@@ -40,8 +40,7 @@ const Navbar = () => {
         </div>
         <div className="sm:flex gap-x-8 h-full items-center text-sm hidden">
           <Link
-            href={`${APP_DOMAIN}/coming-soon.html`}
-            target="_blank"
+            href={`/blogs`}
             className="text-internee-text font-semibold hover:text-internee-text/50"
           >
             Blogs
