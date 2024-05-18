@@ -110,38 +110,42 @@ export const Card = ({
       className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-2 sm:border-4 border-[#6C6C6C] sm:p-6 p-3 bg-[#222222] rounded-[30px] shadow-2xl "
     >
       <div className="bg-gray-100 h-full w-full rounded-2xl grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-x-hidden overflow-y-auto sm:p-4 p-2 scroll ">
-        {users.map((user, idx: number) => (
-          <motion.div
-            key={`user-${idx}`}
-            className="bg-white rounded-md cursor-pointer relative"
-            style={{ translateY: translate }}
-            whileHover={{
-              boxShadow:
-                "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-            }}
-          >
-            <Link
-              href={user.designation}
-              onClick={() =>
-                user.designation === "/" &&
-                window.alert("This internship is not available for now")
-              }
+        {users
+          ?.sort((a, b) => a.name.localeCompare(b.name))
+          ?.map((user, idx: number) => (
+            <motion.div
+              key={`user-${idx}`}
+              className="bg-white rounded-md cursor-pointer relative"
+              style={{ translateY: translate }}
+              whileHover={{
+                boxShadow:
+                  "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+              }}
             >
-              <div className="absolute top-2 right-2 rounded-full text-xs font-bold bg-white px-2 py-1">
-                {user.badge}
-              </div>
-              <img
-                src={user.image}
-                className="rounded-tr-md rounded-tl-md text-sm "
-                alt="thumbnail"
-              />
-              <div className="p-4">
-                <h1 className="font-semibold text-sm ">{user.name}</h1>
-                <p className="text-gray-500 text-xs ">{"Click to know more"}</p>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+              <Link
+                href={user?.designation}
+                onClick={() =>
+                  user?.designation === "/" &&
+                  window.alert("This internship is not available for now")
+                }
+              >
+                <div className="absolute top-2 right-2 rounded-full text-xs font-bold bg-white px-2 py-1">
+                  {user?.badge}
+                </div>
+                <img
+                  src={user?.image}
+                  className="rounded-tr-md rounded-tl-md text-sm "
+                  alt="thumbnail"
+                />
+                <div className="p-4">
+                  <h1 className="font-semibold text-sm ">{user?.name}</h1>
+                  <p className="text-gray-500 text-xs ">
+                    {"Click to know more"}
+                  </p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
       </div>
     </motion.div>
   );

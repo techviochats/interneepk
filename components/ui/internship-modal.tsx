@@ -59,6 +59,8 @@ export function DialogInternshipModal() {
       toast.success(res?.message);
       router.push(`/admin/${param.userId}/internship/${param?.internshipId}`);
       setInputValue("");
+      setImageUrl("");
+      setFile(null);
       rerenderFunc();
       close();
       return;

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface BlogList {
@@ -17,7 +18,8 @@ const BlogList = ({
   full_name,
 }: BlogList) => {
   return (
-    <div
+    <Link
+      href={`/blogs/${$id}`}
       className="bg-white shadow-lg rounded-lg hover:shadow-2xl transition-all duration-300 px-3 py-3 flex flex-col justify-between gap-y-3 ring-muted-foreground/10 ring-1"
       key={$id}
     >
@@ -28,9 +30,8 @@ const BlogList = ({
             ? description.slice(0, 200) + "..."
             : description}
         </p>
-        
       </div>
-    </div>
+    </Link>
   );
 };
 

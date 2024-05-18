@@ -30,7 +30,7 @@ const InternshipList = ({ category, id, name }: InternshipProps) => {
     return;
   };
   return (
-    <div className="w-72 h-20 shadow-lg transition-all duration-300 hover:shadow-2xl rounded-xl ring-muted-foreground/10 ring-1 text-muted-foreground p-5 flex justify-between">
+    <div className="w-72 min-h-20 shadow-lg transition-all duration-300 hover:shadow-2xl rounded-xl ring-muted-foreground/10 ring-1 text-muted-foreground p-5 flex justify-between">
       <div className="flex flex-col">
         <div className="text-internee-theme">{name}</div>
         <div className="text-sm">{category}</div>

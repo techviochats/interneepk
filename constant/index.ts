@@ -71,6 +71,8 @@ import {
   Plus,
   ShieldAlert,
   X as Cut,
+  Clock5,
+  MapPin,
   Bold,
   Code,
   Heading1,
@@ -93,7 +95,6 @@ export {
   FolderKanban as InternshipIcon,
   CircleEllipsis,
   Bold,
-  
   Code,
   Heading1,
   Heading2,
@@ -114,4 +115,6 @@ export {
   ShieldAlert,
   Cut,
   SquarePen,
+  Clock5,
+  MapPin,
 };

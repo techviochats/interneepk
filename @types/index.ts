@@ -69,6 +69,7 @@ export type userType = {
   designation: categoryType;
   image: string;
   badge: string;
+  id?:string
 }[];
 
 export type BlogTypes = {
