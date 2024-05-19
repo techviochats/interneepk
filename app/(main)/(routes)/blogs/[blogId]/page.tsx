@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import Blogs from "../_components/blogs";
 import Loading from "@/components/loading";
+import { getAllBlogs } from "@/actions/get-all-blogs";
 
 const BlogIdPage = ({ params }: { params: { blogId: string } }) => {
   return (
@@ -17,5 +18,12 @@ const BlogIdPage = ({ params }: { params: { blogId: string } }) => {
     </div>
   );
 };
+
+export async function generateStaticParams() {
+  const paramsValue = await getAllBlogs("", "true");
+  return paramsValue?.data?.map((value) => ({
+    blogId: (value as any)?.$id,
+  }));
+}
 
 export default BlogIdPage;
