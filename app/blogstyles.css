@@ -1,12 +1,12 @@
-h1 {
+.tiptap h1 {
   font-size: 36px;
 }
 
-h2 {
+.tiptap h2 {
   font-size: 1.5em;
 }
 
-h3 {
+.tiptap h3 {
   font-size: 1.3em;
 }
 
@@ -22,23 +22,23 @@ h3 {
   }
 }
 
-ul {
+.tiptap ul {
   list-style: disc !important;
 }
 
-pre {
+.tiptap pre {
   background: #3b3a3a;
   color: #c2c2c2;
   border-radius: 7px;
 }
 
-a {
+.tiptap a {
   color: rgb(60, 60, 254);
 
   cursor: pointer;
 }
 
-a.underline {
+.tiptap  a.underline {
   text-decoration: underline;
 }
 
