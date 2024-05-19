@@ -13,12 +13,17 @@ export const getSingleBlogs = async (blogId: string) => {
       APP_WRITE_BLOG_COLLECTION_ID!,
       blogId!
     );
-    const user = await database.getDocument(
-      APP_WRITE_DATABASE_ID!,
-      APP_WRITE_COLLECTION_ID!,
-      (blogs as any).user_id
-    );
-
+    if (!blogs) return { error: "Blog Not Found", data: [], blogId: blogId };
+    const user = await database
+      .getDocument(
+        APP_WRITE_DATABASE_ID!,
+        APP_WRITE_COLLECTION_ID!,
+        (blogs as any)?.user_id
+      )
+      .catch(() => {
+        return { error: "User Not Found", data: [], blogId: blogId };
+      });
+    if (!user) return { error: "User Not Found", data: [], blogId: blogId };
     return { data: [blogs, user] };
   } catch (error) {
     return { error: JSON.stringify(error), data: [], blogId: blogId };
