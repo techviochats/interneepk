@@ -10,7 +10,7 @@ const Blogs = async ({ params }: { params: { blogId: string } }) => {
     (blogs as any)?.user_id
   );
   if (error || userError) {
-    return <div>{JSON.stringify(error)}</div>;
+    return <div>{JSON.stringify(error || userError)}</div>;
   }
   return (
     <div className="flex flex-col gap-y-4">
