@@ -7,7 +7,7 @@ const Announcements = () => {
     !hide && (
       <div className="flex items-center justify-between gap-4 bg-internee-theme px-4 py-3 text-white mb-8">
         <p className="text-sm font-medium">
-          If you don't see any data just refresh it, We will solve shortly
+          If you don&apos;t see any data just refresh it, We will solve shortly
         </p>
 
         <button

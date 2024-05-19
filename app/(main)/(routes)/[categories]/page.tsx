@@ -1,27 +1,10 @@
 import { Metadata } from "next";
 
-import Link from "next/link";
 import React, { Suspense } from "react";
-
-import { Clock5, MapPin } from "lucide-react";
-
-import {
-  allCategories,
-  chatBot,
-  cloudComputing,
-  cybersecurity,
-  graphic,
-  machinelearning,
-  mobileDevelopment,
-  paramsValue,
-  socialMedia,
-  videoEditing,
-  webDesign,
-  webDevelopment,
-} from "@/data/categories-data";
 
 import Category from "./_components/category";
 import Loading from "@/components/loading";
+import { getAllCategory } from "@/actions/get-all-category";
 
 export const metadata: Metadata = {
   title: "Internee.pk | Job Details",
@@ -57,7 +40,8 @@ const CategoriesPage = ({ params }: { params: { categories: string } }) => {
 export default CategoriesPage;
 
 export async function generateStaticParams() {
-  return paramsValue?.map((value) => ({
-    categories: value,
+  const paramsValue = await getAllCategory();
+  return paramsValue?.data?.map((value) => ({
+    categories: (value as any)?.category_name,
   }));
 }

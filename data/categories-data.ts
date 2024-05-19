@@ -1,4 +1,4 @@
-import { categoryParamsType } from "@/@types";
+
 
 export const webDesign = [
   {
@@ -193,16 +193,3 @@ export const allCategories = [
   ...cybersecurity,
 ];
 
-export const paramsValue: categoryParamsType[] = [
-  "allcategories",
-  "webdevelopment",
-  "graphic",
-  "mobiledevelopment",
-  "chatbot",
-  "websitedesign",
-  "cloud",
-  "socialmedia",
-  "videoediting",
-  "machinelearning",
-  "cybersecurity",
-]
