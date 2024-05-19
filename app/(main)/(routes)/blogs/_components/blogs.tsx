@@ -4,11 +4,16 @@ import Editor from "./editor";
 import { getSingleBlogs } from "@/actions/get-single-blogs";
 
 const Blogs = async ({ params }: { params: { blogId: string } }) => {
-  const { data, error } = await getSingleBlogs(params?.blogId);
+  const { data, error, blogId } = await getSingleBlogs(params?.blogId);
   const [blogs, user] = data;
   console.log(blogs);
   if (error) {
-    return <div>{JSON.stringify(error)}</div>;
+    return (
+      <div>
+        {JSON.stringify(error)}
+        {blogId}
+      </div>
+    );
   }
   return (
     <div className="flex flex-col gap-y-4">

@@ -21,6 +21,6 @@ export const getSingleBlogs = async (blogId: string) => {
 
     return { data: [blogs, user] };
   } catch (error) {
-    return { error: JSON.stringify(error), data: [] };
+    return { error: JSON.stringify(error), data: [], blogId: blogId };
   }
 };
