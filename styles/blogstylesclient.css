@@ -1,0 +1,57 @@
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+
+.tiptap {
+  >*+* {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+}
+
+ul {
+  list-style: disc !important;
+}
+
+pre {
+  background: #3b3a3a;
+  color: #c2c2c2;
+  border-radius: 7px;
+}
+
+a {
+  color: rgb(60, 60, 254);
+
+  cursor: pointer;
+}
+
+a.underline {
+  text-decoration: underline;
+}
+
+.tiptap {
+
+  min-height: 350px;
+  overflow-y: auto;
+  background: #fff;
+  color: black;
+  border-radius: 14px;
+  padding: 20px 15px;
+}
+
+.ProseMirror-focused:focus {
+  outline: none !important;
+}

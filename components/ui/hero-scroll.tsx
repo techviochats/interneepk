@@ -1,7 +1,6 @@
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { getAllCategory } from "@/actions/get-all-category";
-// import { userType } from "@/@types";
 
 export async function HeroScroll() {
   const categories = await getAllCategory();
@@ -37,78 +36,3 @@ export async function HeroScroll() {
     </div>
   );
 }
-
-// export const users: userType = [
-//   {
-//     name: "Video Editing Internship",
-//     designation: "/videoediting",
-//     image: "/assets/portrait-woman-customer-service-worker.jpg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Frontend Internship",
-//     designation: "/webdevelopment",
-//     image: "/assets/FrontEnd.jpeg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Cloud Computing Internship",
-//     designation: "/cloud",
-//     image: "/assets/cloud.jpg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Graphic Designing Internships",
-//     designation: "/graphic",
-//     image: "/assets/logo-designer-working-computer-desktop.jpg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Backend Internship",
-//     designation: "/webdevelopment",
-//     image: "/assets/BackendDevelopment.jpeg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Chatbot Development Internship",
-//     designation: "/chatbot",
-//     image: "/assets/chatbotDevelopment.jpeg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Mobile App Development Internship",
-//     designation: "/mobiledevelopment",
-//     image: "/assets/app.jpeg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Digital Marketing Internship",
-//     designation: "/",
-//     image: "/assets/marketing-assistant.jpg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Cyber Security Intership",
-//     designation: "/cybersecurity",
-//     image: "/assets/hack.jpeg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Machine Learning Internship",
-//     designation: "/machinelearning",
-//     image: "/assets/Machine-Learning.jpeg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Technical Writing Internship",
-//     designation: "/",
-//     image: "/assets/young-woman-teaching-english-lessons.jpg",
-//     badge: "Mentor",
-//   },
-//   {
-//     name: "Devops Internship",
-//     designation: "/",
-//     image: "/assets/DataScience.jpeg",
-//     badge: "Mentor",
-//   },
-// ];

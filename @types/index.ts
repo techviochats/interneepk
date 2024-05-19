@@ -29,6 +29,7 @@ export interface userState {
   isError: boolean;
   isAdmin: boolean;
   userDbData: Partial<userDbDataType>;
+  created: boolean;
   addData: () => void;
   logOut: () => void;
   updateDbData: () => void;
@@ -37,40 +38,6 @@ export interface userState {
 export interface breadCrumbsTypes {
   path: string[];
 }
-
-export type categoryType =
-  | "/webdevelopment"
-  | "/graphic"
-  | "/mobiledevelopment"
-  | "/chatbot"
-  | "/websitedesign"
-  | "/cloud"
-  | "/socialmedia"
-  | "/videoediting"
-  | "/machinelearning"
-  | "/cybersecurity"
-  | "/";
-
-export type categoryParamsType =
-  | "webdevelopment"
-  | "graphic"
-  | "mobiledevelopment"
-  | "chatbot"
-  | "websitedesign"
-  | "cloud"
-  | "socialmedia"
-  | "videoediting"
-  | "machinelearning"
-  | "cybersecurity"
-  | "allcategories";
-
-export type userType = {
-  name: string;
-  designation: categoryType;
-  image: string;
-  badge: string;
-  id?:string
-}[];
 
 export type BlogTypes = {
   blogs: string;

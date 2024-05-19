@@ -6,8 +6,8 @@ import { ChildrenTypes } from "@/@types";
 import { useUser } from "@/hooks/use-current-user";
 
 const AuthProvider = ({ children }: ChildrenTypes) => {
-  const { addData } = useUser();
-  const provideData = React.useCallback(addData, []);
+  const { addData, created } = useUser();
+  const provideData = React.useCallback(addData, [created]);
   React.useEffect(() => {
     provideData();
   }, [provideData]);

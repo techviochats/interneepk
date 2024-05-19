@@ -7,9 +7,9 @@ export const getUserFromDb = async (promise: any) => {
     if (!promise) {
       return { error: "Login First" };
     }
-    const user = await checkUserInDb(promise.$id);
+    const user = await checkUserInDb(promise?.$id);
     if (user) {
-      return { data: user };
+      return { data: user, created: false };
     }
     const userCreated = await database.createDocument(
       APP_WRITE_DATABASE_ID!,
@@ -23,9 +23,16 @@ export const getUserFromDb = async (promise: any) => {
         email_verification: promise.emailVerification,
       }
     );
-    return { data: userCreated };
+
+    return { data: userCreated, created: true };
   } catch (error: any) {
-    return { error: error?.response?.message || "Some error Occurred" };
+    console.log(error);
+    return {
+      error: error?.response?.message || "Some error Occurred",
+      created: false,
+      code: error?.code,
+      type: error?.type,
+    };
   }
 };
 

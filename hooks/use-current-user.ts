@@ -6,12 +6,14 @@ import { account } from "@/lib/app-write-config";
 import { getUserFromDb } from "@/lib/app-write-utils";
 // import { addUserInDb } from "@/lib/app-write-utils";
 
-const sidebarStore = create<userState>((set) => ({
+const sidebarStore = create<userState>((set, get) => ({
   userData: {},
   isLoading: false,
   isError: false,
   isAdmin: false,
   userDbData: {},
+  created: false,
+
   addData: () => {
     set({ isLoading: true, isError: false, userData: {}, userDbData: {} });
     account
@@ -19,6 +21,25 @@ const sidebarStore = create<userState>((set) => ({
       .then(async (res) => {
         const userDbData = await getUserFromDb(res);
         const isAdmin: boolean = res.labels.includes("admin");
+        if (userDbData?.created) {
+          set({
+            isLoading: false,
+            userData: res,
+            isAdmin: isAdmin,
+            created: true,
+            userDbData: { ...userDbData.data },
+          });
+          return;
+        }
+
+        if (
+          userDbData.error &&
+          userDbData.code === 409 &&
+          userDbData.type === "document_already_exists"
+        ) {
+          return;
+        }
+
         set({
           isLoading: false,
           userData: res,
@@ -76,6 +97,7 @@ const useUser = () => {
     logOut,
     userDbData,
     updateDbData,
+    created,
   } = sidebarStore(
     useShallow((state) => ({
       userData: state.userData,
@@ -86,6 +108,7 @@ const useUser = () => {
       logOut: state.logOut,
       userDbData: state.userDbData,
       updateDbData: state.updateDbData,
+      created: state.created,
     }))
   );
   return {
@@ -97,6 +120,7 @@ const useUser = () => {
     logOut,
     userDbData,
     updateDbData,
+    created,
   };
 };
 
